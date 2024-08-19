@@ -59,7 +59,7 @@
   /* #endregion  /**======== Typography =========== */
   body,
   .body {
-    @apply font-primary text-sm md:text-base;
+    @apply font-primary text-sm md:text-base selection:bg-primary-500;
   }
 
   .layout {

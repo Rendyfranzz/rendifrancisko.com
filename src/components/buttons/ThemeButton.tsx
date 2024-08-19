@@ -1,3 +1,4 @@
+'use client';
 import { useTheme } from 'next-themes';
 import * as react from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';

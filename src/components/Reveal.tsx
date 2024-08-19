@@ -1,3 +1,4 @@
+'use client';
 import { cn } from '@/lib/utils';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import React, { useRef } from 'react';
@@ -46,7 +47,7 @@ export default function Reveal({ children, width = 'w-fit' }: RevealProps) {
           left: 0,
           bottom: 4,
           right: 0,
-          background: 'var( --clr-primary-400)',
+          background: 'var( --clr-primary-500)',
           zIndex: 20,
         }}
       />

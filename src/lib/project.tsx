@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
+import CustomImage from '@/components/CustomImage';
 import { Project, ProjectMetadata } from '@/types/project';
-import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
+import { compileMDX } from 'next-mdx-remote/rsc';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
@@ -12,35 +12,51 @@ export async function getProjectBySlug(slug: string): Promise<Project> {
   const filePath = path.join(process.cwd(), 'src/contents/project', slug);
   const fileContent = fs.readFileSync(filePath, 'utf8');
 
-  const { content, data } = matter(fileContent);
-  const mdx = await serialize(content, {
-    parseFrontmatter: true,
-    mdxOptions: {
-      rehypePlugins: [
-        rehypeHighlight,
-        rehypeSlug,
-        [
-          rehypeAutolinkHeadings,
-          {
-            behavior: 'wrap',
-          },
+  const { frontmatter, content } = await compileMDX<ProjectMetadata>({
+    source: fileContent,
+    components: {
+      CustomImage,
+    },
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        rehypePlugins: [
+          rehypeHighlight,
+          rehypeSlug,
+          [
+            rehypeAutolinkHeadings,
+            {
+              behavior: 'wrap',
+            },
+          ],
         ],
-      ],
+      },
     },
   });
+  // const mdx = await serialize(content, {
+  //   parseFrontmatter: true,
+  //   mdxOptions: {
+  //     rehypePlugins: [
+  //       rehypeHighlight,
+  //       rehypeSlug,
+  //       [
+  //         rehypeAutolinkHeadings,
+  //         {
+  //           behavior: 'wrap',
+  //         },
+  //       ],
+  //     ],
+  //   },
+  // });
 
   const id = slug.replace(/\.mdx$/, '');
 
   return {
     meta: {
+      ...frontmatter,
       id,
-      title: data.title,
-      description: data.description,
-      thumbnail: data.thumbnail,
-      date: data.date,
-      techStack: data.techStack,
     },
-    mdxSource: mdx,
+    mdxSource: content,
   };
 }
 

@@ -1,3 +1,4 @@
+'use client';
 import TechIcons, { type TechListType } from '@/components/icons/TechIcon';
 import { ProjectMetadata } from '@/types/project';
 import { format, parseISO } from 'date-fns';
@@ -36,7 +37,7 @@ export const ProjectCard = (project: ProjectMetadata) => {
         <time dateTime={project.date} className='block text-sm text-slate-600'>
           {format(parseISO(project.date), 'LLLL d, yyyy')}
         </time>
-        <Link href={`/project/${project.id}`}>
+        <Link href={`/projects/${project.id}`}>
           <span className='animated-underline mt-2 inline-block font-medium'>
             See more →
           </span>

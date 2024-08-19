@@ -1,6 +1,8 @@
+'use client';
 import BG from '@/components/BG';
 import Reveal from '@/components/Reveal';
 import { Layout } from '@/components/layout/Layout';
+
 import {
   animate,
   motion,
@@ -21,9 +23,7 @@ export default function Home() {
   ];
   const { theme } = useTheme();
   const color = useMotionValue(COLORS[0]);
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, 
-  ${theme === 'dark' ? '#000' : '#fff'}
-   50%, ${color})`;
+  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, ${theme === 'dark' ? '#000' : '#fff'} 50%, ${color})`;
 
   useEffect(() => {
     animate(color, COLORS, {

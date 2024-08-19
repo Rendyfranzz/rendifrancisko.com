@@ -1,20 +1,15 @@
+import AnimateDiv from '@/components/AnimateDiv';
 import Reveal from '@/components/Reveal';
 import { ProjectCard } from '@/components/content/project/ProjectCard';
 import { Layout } from '@/components/layout/Layout';
 import { getAllProjects } from '@/lib/project';
 import { ProjectMetadata } from '@/types/project';
-import { motion } from 'framer-motion';
-import Head from 'next/head';
 
-export default function index({
-  mdxSources,
-}: { mdxSources: ProjectMetadata[] }) {
+export default async function index() {
+  const mdxSources: ProjectMetadata[] = await getAllProjects();
   return (
     <Layout>
       <section className={`layout`}>
-        <Head>
-          <title>Projects</title>
-        </Head>
         <Reveal>
           <h1 className=' text-3xl font-bold'>Projects</h1>
         </Reveal>
@@ -25,7 +20,7 @@ export default function index({
             and frameworks.
           </p>
         </Reveal>
-        <motion.div
+        <AnimateDiv
           variants={{
             hidden: { opacity: 0, y: 50 },
             show: {
@@ -42,18 +37,16 @@ export default function index({
               <ProjectCard key={idx} {...post} />
             ))}
           </ul>
-        </motion.div>
+        </AnimateDiv>
       </section>
     </Layout>
   );
 }
 
-export async function getStaticProps() {
-  const mdxSources = await getAllProjects();
+// async function getProjects() {
+//   const mdxSources = await getAllProjects();
 
-  return {
-    props: {
-      mdxSources,
-    },
-  };
-}
+//   return {
+//     mdxSources,
+//   };
+// }

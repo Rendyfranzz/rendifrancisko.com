@@ -19,7 +19,14 @@ module.exports = {
         },
         dark: '#222222',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100ch',
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

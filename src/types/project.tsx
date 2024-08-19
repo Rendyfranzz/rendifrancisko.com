@@ -1,5 +1,3 @@
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
-
 export interface ProjectMetadata {
   id: string;
   title: string;
@@ -11,5 +9,5 @@ export interface ProjectMetadata {
 
 export interface Project {
   meta: ProjectMetadata;
-  mdxSource: MDXRemoteSerializeResult;
+  mdxSource: any;
 }
