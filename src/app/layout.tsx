@@ -83,7 +83,7 @@ export default function RootLayout({
         <ProgressBarProvider>
           <ThemeProvider
             attribute='class'
-            defaultTheme='system'
+            defaultTheme='dark'
             enableSystem
             disableTransitionOnChange
           >

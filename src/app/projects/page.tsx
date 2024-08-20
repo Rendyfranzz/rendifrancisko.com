@@ -11,10 +11,10 @@ export default async function index() {
     <Layout>
       <section className={`layout`}>
         <Reveal>
-          <h1 className=' text-3xl font-bold'>Projects</h1>
+          <h1 className=' text-3xl font-bold '>Projects</h1>
         </Reveal>
         <Reveal>
-          <p className='mt-4 text-xl font-semibold'>
+          <p>
             Here are some of the projects that I have worked on. I have
             experience in building websites using modern frontend technologies
             and frameworks.

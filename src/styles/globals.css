@@ -76,6 +76,10 @@
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
   }
+
+  .cursor-newtab {
+    cursor: url('/images/new-tab.png') 10 10, pointer;
+  }
 }
 
 
