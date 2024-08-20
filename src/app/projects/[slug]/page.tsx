@@ -1,8 +1,7 @@
+import CustomImages from '@/components/images/CustomImages';
 import { Layout } from '@/components/layout/Layout';
 import { getAllProjects, getProjectBySlug } from '@/lib/project';
 import { format, parseISO } from 'date-fns';
-
-import Image from 'next/image';
 
 export async function generateMetadata({
   params,
@@ -53,12 +52,12 @@ export default async function Index({
     <Layout>
       <section className='layout'>
         {meta.thumbnail != null && (
-          <Image
+          <CustomImages
             src={meta.thumbnail}
             alt={meta.title}
             height={300}
             width={1200}
-            className='rounded-lg'
+            className='rounded-lg w-full'
           />
         )}
         <div className='mb-6 text-center'>

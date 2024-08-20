@@ -17,9 +17,9 @@ const ThemeButton = () => {
         }}
       >
         {mounted ? (
-          <>{theme === 'light' ? <FaMoon size={40} /> : <FaSun size={40} />}</>
+          <>{theme === 'light' ? <FaMoon size={30} /> : <FaSun size={30} />}</>
         ) : (
-          <FaSun size={40} />
+          <FaSun size={30} />
         )}
       </button>
     </>
