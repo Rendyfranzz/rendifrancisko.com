@@ -1,7 +1,5 @@
 import querystring from 'querystring';
-/* eslint-disable @typescript-eslint/naming-convention */
 import axios from 'axios';
-import {} from 'next';
 import { NextResponse } from 'next/server';
 
 const {
@@ -48,7 +46,7 @@ const getAccessToken = async () => {
   return res.data.access_token;
 };
 
-export const getNowPlaying = async () => {
+const getNowPlaying = async () => {
   const access_token = await getAccessToken();
 
   return await axios.get<SpotifyData>(NOW_PLAYING_ENDPOINT, {
