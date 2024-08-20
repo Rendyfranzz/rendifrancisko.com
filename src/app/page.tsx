@@ -1,4 +1,5 @@
 'use client';
+import Accent from '@/components/Accent';
 import BG from '@/components/BG';
 import Reveal from '@/components/Reveal';
 import { Layout } from '@/components/layout/Layout';
@@ -51,13 +52,9 @@ export default function Home() {
               </Reveal>
               <Reveal>
                 <p className='h1 text-3xl md:text-5xl 2xl:text-6xl mt-2'>
-                  <span
-                    className='transition-colors
-            bg-gradient-to-tr from-primary-300/40 via-primary-300/40 to-primary-400/40
-           dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent h1 text-3xl md:text-5xl 2xl:text-6xl'
-                  >
+                  <Accent className='h1 text-3xl md:text-5xl 2xl:text-6xl'>
                     RENDI{' '}
-                  </span>
+                  </Accent>
                   DWI FRANCISKO
                 </p>
               </Reveal>

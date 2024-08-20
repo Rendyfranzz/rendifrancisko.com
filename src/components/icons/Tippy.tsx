@@ -1,14 +1,15 @@
+'use client';
 import * as React from 'react';
 import { Tooltip as TippyTooltip, type TooltipProps } from 'react-tippy';
 
 type TooltipTextProps = {
-  content?: React.ReactNode;
+  tipChildren?: React.ReactNode;
   children?: React.ReactNode;
 } & TooltipProps &
   Omit<React.ComponentPropsWithoutRef<'div'>, 'children'>;
 
 export default function Tooltip({
-  content,
+  tipChildren,
   children,
   ...rest
 }: TooltipTextProps) {
@@ -20,7 +21,7 @@ export default function Tooltip({
       interactive
       html={
         <div className='inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:bg-dark dark:text-gray-200'>
-          {content}
+          {tipChildren}
         </div>
       }
       {...rest}
