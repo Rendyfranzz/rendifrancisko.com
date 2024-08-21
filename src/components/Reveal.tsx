@@ -47,7 +47,7 @@ export default function Reveal({ children, width = 'w-fit' }: RevealProps) {
           left: 0,
           bottom: 4,
           right: 0,
-          background: 'var( --clr-primary-500)',
+          background: 'var( --clr-primary-400)',
           zIndex: 20,
         }}
       />

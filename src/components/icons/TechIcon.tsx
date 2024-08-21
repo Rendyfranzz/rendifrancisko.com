@@ -3,6 +3,7 @@ import { IoLogoVercel } from 'react-icons/io5';
 import {
   SiFirebase,
   SiFlutter,
+  SiFramer,
   SiGit,
   SiGoogleanalytics,
   SiJavascript,
@@ -123,10 +124,14 @@ const techList = {
   },
   prisma: {
     icon: SiPrisma,
-    name: 'prisma',
+    name: 'Prisma',
   },
   flutter: {
     icon: SiFlutter,
-    name: 'flutter',
+    name: 'Flutter',
+  },
+  framer: {
+    icon: SiFramer,
+    name: 'Framer Motion',
   },
 };

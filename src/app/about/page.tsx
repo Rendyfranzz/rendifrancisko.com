@@ -10,7 +10,8 @@ export default function index() {
             <Accent>About me</Accent>
           </h1>
           <p>
-            My name is<Accent> Rendi Dwi Francisko.</Accent>
+            My name is
+            <Accent className='font-medium'> Rendi Dwi Francisko.</Accent>
           </p>
           <p>
             I am currently pursuing a degree in Informatics at Institut

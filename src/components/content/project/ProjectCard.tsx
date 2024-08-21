@@ -29,6 +29,7 @@ export const ProjectCard = (project: ProjectMetadata) => {
         <div className='h-40 overflow-hidden'>
           {project.thumbnail != null && (
             <CustomImages
+              priority
               useSkeleton
               src={project.thumbnail}
               alt={project.title}

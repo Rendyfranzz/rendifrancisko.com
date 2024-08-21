@@ -16,7 +16,7 @@
   --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
 }
 @layer base {
- 
+
 
   /* #region  /**=========== Typography =========== */
   .h0 {
@@ -50,7 +50,7 @@
   /* #endregion  /**======== Typography =========== */
   body,
   .body {
-    @apply  text-sm md:text-base selection:bg-primary-500;
+    @apply  text-sm md:text-base selection:bg-primary-400;
   }
 
   .layout {

@@ -1,27 +1,41 @@
-import Links from '../buttons/Links';
+'use client';
+import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
+import CustomLink from '../buttons/CustomLink';
 import ThemeButton from '../buttons/ThemeButton';
 
 export default function Header() {
+  const pathName = usePathname();
+
   return (
-    <div className='sticky top-0 shadow-sm z-50 bg-white transition-colors dark:bg-dark dark:text-white'>
+    <header className='sticky top-0 shadow-sm z-50 transition-colors bg-white dark:bg-black'>
       <nav className='flex items-center layout justify-center '>
         <div className='w-full flex justify-between'>
           <ul className='flex flex-row justify-center items-center space-x-6 font-bold'>
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
-                <Links href={href}>{label}</Links>
+                <CustomLink href={href}>
+                  <p
+                    className={cn(
+                      '',
+                      pathName === href ? 'text-primary-500' : '',
+                      'hover:text-primary-500',
+                    )}
+                  >
+                    {label}
+                  </p>
+                </CustomLink>
               </li>
             ))}
           </ul>
           <ThemeButton />
         </div>
       </nav>
-    </div>
+    </header>
   );
 }
 const links = [
   { href: '/', label: 'Home' },
-  // { href: '/blog', label: 'Blog' },
   { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
 ];

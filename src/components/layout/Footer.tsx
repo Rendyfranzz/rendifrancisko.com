@@ -51,7 +51,7 @@ export const Footer = () => {
   );
 };
 
-type Social = {
+export type Social = {
   href: string;
   icon: IconType;
   id: string;

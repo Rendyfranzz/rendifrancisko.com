@@ -1,77 +1,51 @@
-'use client';
-import Accent from '@/components/Accent';
-import BG from '@/components/BG';
+import AnimateDiv from '@/components/AnimateDiv';
+import AnimateSection from '@/components/AnimateSection';
+import HeroSection from '@/components/HeroSection';
 import Reveal from '@/components/Reveal';
+import CustomLink from '@/components/buttons/CustomLink';
+import { ProjectCard } from '@/components/content/project/ProjectCard';
 import { Layout } from '@/components/layout/Layout';
+import { getAllProjects } from '@/lib/project';
+import { ProjectMetadata } from '@/types/project';
 
-import {
-  animate,
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-} from 'framer-motion';
-import { useTheme } from 'next-themes';
-import { useEffect } from 'react';
+export default async function Home() {
+  const mdxSources: ProjectMetadata[] = await getAllProjects({ count: 3 });
 
-export default function Home() {
-  const COLORS = [
-    '#13FFAA', // Turquoise
-    '#1E67C6', // Deep Blue
-    '#FF6F6F', // Soft Coral
-    '#F5F5F5', // Light Gray
-    '#2E3A8C', // Dark Slate
-    '#B9FF00', // Lime Green
-  ];
-  const { theme } = useTheme();
-  const color = useMotionValue(COLORS[0]);
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, ${theme === 'dark' ? '#000' : '#fff'} 50%, ${color})`;
-
-  useEffect(() => {
-    animate(color, COLORS, {
-      duration: 10,
-      repeat: Infinity,
-      repeatType: 'mirror',
-      ease: 'easeInOut',
-    });
-  }, []);
   return (
     <Layout>
-      <motion.section
-        style={{
-          backgroundImage,
-        }}
-        className='min-h-main'
-      >
-        <div className='h-screen flex flex-row items-center justify-between layout relative overflow-hidden'>
-          <div className='h-[70%]'>
-            <div className='flex flex-col'>
-              <Reveal>
-                <p className='h1 text-3xl md:text-5xl 2xl:text-6xl'>
-                  HELLO ,I AM
-                </p>
-              </Reveal>
-              <Reveal>
-                <p className='h1 text-3xl md:text-5xl 2xl:text-6xl mt-2'>
-                  <Accent className='h1 text-3xl md:text-5xl 2xl:text-6xl'>
-                    RENDI{' '}
-                  </Accent>
-                  DWI FRANCISKO
-                </p>
-              </Reveal>
-              <Reveal>
-                <div className='w-full mt-20 md:mt-12'>
-                  <p className='h1'>
-                    Informatics Engineering Student of<br></br> Institute
-                    Teknologi Sepuluh Nopember
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-          <div className='w-[30%] h-[80%] border hidden md:block'></div>
-          <BG className='z-20 absolute bottom-60 right-6 h-full translate-y-[37%] transform-gpu w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px] opacity-70 dark:opacity-70' />
+      <HeroSection />
+      <AnimateSection>
+        <div className='layout min-h-main'>
+          <Reveal>
+            <h1>Recently Project</h1>
+          </Reveal>
+          <AnimateDiv
+            className='space-y-4 flex flex-col'
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              show: {
+                y: 0,
+                opacity: 1,
+              },
+            }}
+            initial='hidden'
+            animate='show'
+            transition={{ duration: 0.55, delay: 0.5 }}
+          >
+            <ul className='mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+              {mdxSources.map((post: ProjectMetadata, idx: number) => (
+                <ProjectCard key={idx} {...post} />
+              ))}
+            </ul>
+            <CustomLink
+              href='/projects'
+              className='p font-semibold border p-1 rounded-md w-fit hover:border-primary-500 hover:scale-105 transition-all duration-100 ease-in-out'
+            >
+              View All Projects
+            </CustomLink>
+          </AnimateDiv>
         </div>
-      </motion.section>
+      </AnimateSection>
     </Layout>
   );
 }

@@ -60,7 +60,13 @@ export async function getProjectBySlug(slug: string): Promise<Project> {
   };
 }
 
-export async function getAllProjects(): Promise<ProjectMetadata[]> {
+interface getAllProjectsProps {
+  count?: number;
+}
+
+export async function getAllProjects({
+  count,
+}: getAllProjectsProps = {}): Promise<ProjectMetadata[]> {
   const filePath = path.join(process.cwd(), 'src/contents/project');
   const files = fs
     .readdirSync(filePath)
@@ -76,7 +82,9 @@ export async function getAllProjects(): Promise<ProjectMetadata[]> {
     }
   }
 
-  return project.sort(
+  const result = project.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
+
+  return count ? result.slice(0, count) : result;
 }
