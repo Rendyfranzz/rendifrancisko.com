@@ -23,7 +23,7 @@ export const ProjectCard = (project: ProjectMetadata) => {
         <p className='mb-auto text-sm text-gray-700 dark:text-gray-300'>
           {project.description}
         </p>
-        <div className='mt-2'>
+        <div className='mt-2 mb-1'>
           <TechIcons techs={project.techStack.split(',') as TechListType[]} />
         </div>
         <div className='h-40 overflow-hidden'>
@@ -46,7 +46,7 @@ export const ProjectCard = (project: ProjectMetadata) => {
 
         <span
           className='font-medium flex flex-col after:h-[0.15rem] after:max-w-0 after:group-hover:max-w-full 
-          after:bg-primary-400 after:transition-all after:duration-500 after:ease-in-out after:rounded-r-md'
+          after:bg-primary-500 after:transition-all after:duration-500 after:ease-in-out after:rounded-r-md'
         >
           See more →
         </span>

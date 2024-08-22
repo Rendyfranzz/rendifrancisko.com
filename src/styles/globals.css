@@ -7,12 +7,12 @@
   /* https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo */
   --tw-clr-primary-200: 219 255 0;
   --tw-clr-primary-300: 0 255 255;
-  --tw-clr-primary-400: 0 247 255;
+  --tw-clr-primary-400: 121 0 243;
   --tw-clr-primary-500: 0 196 253;
 
   --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
   --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
-  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #00e0f3 */
+  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #7900f3 */
   --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
 }
 @layer base {
@@ -50,7 +50,7 @@
   /* #endregion  /**======== Typography =========== */
   body,
   .body {
-    @apply  text-sm md:text-base selection:bg-primary-400;
+    @apply  text-sm md:text-base selection:bg-primary-500;
   }
 
   .layout {

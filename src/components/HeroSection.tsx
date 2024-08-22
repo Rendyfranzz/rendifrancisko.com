@@ -11,14 +11,7 @@ import CustomLink from './buttons/CustomLink';
 import { Social } from './layout/Footer';
 
 export default function HeroSection() {
-  const COLORS = [
-    '#13FFAA', // Turquoise
-    '#1E67C6', // Deep Blue
-    '#FF6F6F', // Soft Coral
-    '#F5F5F5', // Light Gray
-    '#2E3A8C', // Dark Slate
-    '#B9FF00', // Lime Green
-  ];
+  const COLORS = ['#7900f3', '#1E67C6', '#026dba', '#1000f3', '#2E3A8C'];
   const { theme } = useTheme();
   const color = useMotionValue(COLORS[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 100%, ${theme === 'dark' ? '#000' : '#fff'} 40%, ${color})`;
@@ -64,7 +57,7 @@ export default function HeroSection() {
               <Reveal>
                 <CustomLink
                   key={social.href}
-                  className='inline-flex items-center justify-center rounded-md shadow-sm border p-1 hover:bg-primary-300 transition-colors
+                  className='inline-flex space-x-2 items-center justify-center rounded-md shadow-sm border p-1 hover:bg-primary-300 transition-colors
                    dark:hover:text-black dark:hover:bg-primary-300 hover:scale-105  duration-100 ease-in-out'
                   href={social.href}
                 >
