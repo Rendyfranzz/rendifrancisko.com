@@ -20,6 +20,7 @@ import {
   SiSwift,
   SiTailwindcss,
   SiTypescript,
+  SiWordpress,
 } from 'react-icons/si';
 
 import Tooltip from './Tippy';
@@ -133,5 +134,9 @@ const techList = {
   framer: {
     icon: SiFramer,
     name: 'Framer Motion',
+  },
+  wordpress: {
+    icon: SiWordpress,
+    name: 'Wordpress',
   },
 };
