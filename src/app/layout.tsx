@@ -58,10 +58,10 @@ export const metadata: Metadata = {
     ],
   },
   description:
-    'Explore the online portfolio and blog of Rendi Francisko. Highlighting my projects and offering insights into web development practices.',
+    'Explore the online portfolio and blog of Rendi Dwi Francisko. Highlighting my projects and offering insights into web development practices.',
   openGraph: {
     description:
-      'Explore the online portfolio and blog of Rendi Francisko. Highlighting my projects and offering insights into web development practices.',
+      'Explore the online portfolio and blog of Rendi Dwi Francisko. Highlighting my projects and offering insights into web development practices.',
     images: [],
   },
   manifest: '/icons/manifest.json',
@@ -73,11 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang='en'
-      className='!scroll-smooth scroll-p-20'
-      suppressHydrationWarning
-    >
+    <html lang='en' className='!scroll-smooth' suppressHydrationWarning>
       <body
         className={cn(
           'bg-white transition-colors dark:bg-black dark:text-gray-300',
