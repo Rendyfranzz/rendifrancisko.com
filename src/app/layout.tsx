@@ -48,23 +48,46 @@ export const metadata: Metadata = {
     ],
     icon: [
       {
-        url: 'icons/android-icon-192x192.png',
+        url: '/icons/android-icon-192x192.png',
         sizes: '192x192',
         type: 'image/png',
       },
-      { url: 'icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: 'icons/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: 'icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
   },
   description:
     'Explore the online portfolio and blog of Rendi Dwi Francisko. Highlighting my projects and offering insights into web development practices.',
   openGraph: {
+    title: 'Rendi Francisko',
+    type: 'website',
+    siteName: 'Rendi Francisko',
     description:
       'Explore the online portfolio and blog of Rendi Dwi Francisko. Highlighting my projects and offering insights into web development practices.',
-    images: [],
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1208,
+        height: 1208,
+        alt: 'Rendi Francisko',
+      },
+    ],
   },
   manifest: '/icons/manifest.json',
+  twitter: {
+    title: 'Rendi Francisko',
+    site: '@RendiFrancisko',
+    card: 'summary_large_image',
+    images: {
+      url: '/images/og-image.jpg',
+      width: 1208,
+      height: 1208,
+      alt: 'Rendi Francisko',
+    },
+    description:
+      'Explore the online portfolio and blog of Rendi Dwi Francisko. Highlighting my projects and offering insights into web development practices.',
+  },
 };
 
 export default function RootLayout({

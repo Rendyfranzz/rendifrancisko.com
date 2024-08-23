@@ -27,6 +27,17 @@ export async function generateMetadata({
           },
         ],
       },
+      twitter: {
+        title: project.meta.title,
+        description: project.meta.description,
+        card: 'summary_large_image',
+        images: {
+          url: project.meta.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: project.meta.title,
+        },
+      },
     };
   } catch (error) {
     console.error(error);
