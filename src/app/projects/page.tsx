@@ -1,3 +1,4 @@
+import Accent from '@/components/Accent';
 import AnimateDiv from '@/components/AnimateDiv';
 import Reveal from '@/components/Reveal';
 import { ProjectCard } from '@/components/content/project/ProjectCard';
@@ -11,7 +12,7 @@ export default async function index() {
     <Layout>
       <section className={`layout`}>
         <Reveal>
-          <h1 className=' text-3xl font-bold '>Projects</h1>
+          <Accent className='text-3xl font-bold '>Projects</Accent>
         </Reveal>
         <Reveal>
           <p>

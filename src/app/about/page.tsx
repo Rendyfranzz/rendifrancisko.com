@@ -6,26 +6,26 @@ export default function index() {
     <Layout>
       <section className='layout'>
         <div className='prose  dark:prose-invert'>
-          <h1 className='mt-4'>
-            <Accent>About me</Accent>
-          </h1>
+          <Accent className='text-3xl font-bold '>About me</Accent>
           <p>
             My name is
             <Accent className='font-medium'> Rendi Dwi Francisko.</Accent>
           </p>
           <p>
-            I am currently pursuing a degree in Informatics at Institut
-            Teknologi Sepuluh Nopember. My journey in programming began with
-            exploring various technologies and quickly led me to work on several
-            projects as a Frontend Developer. Over time, I have concentrated on
-            web development with JavaScript technologies, particularly using
-            React and Next.js.
+            I hold a degree in Informatics from Institut Teknologi Sepuluh
+            Nopember. My programming journey began with exploring various
+            technologies, which quickly led me to work on several projects as a
+            Frontend Developer. Over time, I have focused on web development,
+            specializing in JavaScript technologies, particularly React and
+            Next.js.
           </p>
           <p>
-            On this page, I will showcase some of the projects I have been
-            involved in. If you'd like to discuss anything or share your
-            thoughts, feedback, or suggestions, please don’t hesitate to get in
-            touch. I look forward to hearing from you!
+            On this page, I showcase some of the projects I have been involved
+            in, reflecting my growth and experiences in the field. If you’d like
+            to discuss anything or share your thoughts, feedback, or
+            suggestions, please feel free to get in touch. I am always open to
+            new conversations and collaborations. I look forward to hearing from
+            you!
           </p>
         </div>
       </section>

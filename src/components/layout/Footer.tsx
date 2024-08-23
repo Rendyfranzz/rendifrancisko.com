@@ -10,7 +10,7 @@ export const Footer = () => {
   return (
     <footer className='mt-4 pb-2 h-full'>
       <div className='layout flex flex-col items-center border-t pt-6 dark:border-gray-600'>
-        <p className='h4 mb-2'>Give me a shout</p>
+        <p className='h4 mb-2 font-semibold'>Give me a shout</p>
         <div className='flex space-x-4'>
           {socials.map((social) => (
             <Tooltip
@@ -35,7 +35,16 @@ export const Footer = () => {
             className='text-primary-500 hover:underline'
           >
             Next.js
-          </CustomLink>{' '}
+          </CustomLink>
+          {', '}
+          <CustomLink
+            openNewTab
+            href='https://www.framer.com/'
+            className='text-primary-500 hover:underline'
+          >
+            Framer Motion
+          </CustomLink>
+          {', '}
           and{' '}
           <CustomLink
             className='text-primary-500 hover:underline'
