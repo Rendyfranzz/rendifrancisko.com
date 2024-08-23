@@ -67,7 +67,7 @@ export const metadata: Metadata = {
       'Explore the online portfolio and blog of Rendi Dwi Francisko. Highlighting my projects and offering insights into web development practices.',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/og-image.png',
         width: 1208,
         height: 1208,
         alt: 'Rendi Francisko',
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     site: '@RendiFrancisko',
     card: 'summary_large_image',
     images: {
-      url: '/images/og-image.jpg',
+      url: '/images/og-image.png',
       width: 1208,
       height: 1208,
       alt: 'Rendi Francisko',
