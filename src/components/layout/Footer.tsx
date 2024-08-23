@@ -27,7 +27,7 @@ export const Footer = () => {
             </Tooltip>
           ))}
         </div>
-        <p>
+        <p className='text-center'>
           Made using{' '}
           <CustomLink
             openNewTab
