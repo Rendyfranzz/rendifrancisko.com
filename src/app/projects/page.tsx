@@ -5,6 +5,10 @@ import { ProjectCard } from '@/components/content/project/ProjectCard';
 import { Layout } from '@/components/layout/Layout';
 import { getAllProjects } from '@/lib/project';
 import { ProjectMetadata } from '@/types/project';
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: 'Projects',
+};
 
 export default async function index() {
   const mdxSources: ProjectMetadata[] = await getAllProjects();

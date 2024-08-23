@@ -1,5 +1,10 @@
 import Accent from '@/components/Accent';
 import { Layout } from '@/components/layout/Layout';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About',
+};
 
 export default function index() {
   return (
