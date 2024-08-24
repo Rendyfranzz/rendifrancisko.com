@@ -7,9 +7,22 @@ import { ProjectCard } from '@/components/content/project/ProjectCard';
 import { Layout } from '@/components/layout/Layout';
 import { getAllProjects } from '@/lib/project';
 import { ProjectMetadata } from '@/types/project';
+import { Redis } from '@upstash/redis';
 
 export default async function Home() {
   const mdxSources: ProjectMetadata[] = await getAllProjects({ count: 3 });
+  const redis = Redis.fromEnv();
+  const views = (
+    await redis.mget<number[]>(
+      ...mdxSources.map((p) => ['pageviews', 'projects', p.id].join(':')),
+    )
+  ).reduce(
+    (acc, v, i) => {
+      acc[mdxSources[i].id] = v ?? 0;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
 
   return (
     <Layout>
@@ -34,7 +47,11 @@ export default async function Home() {
           >
             <ul className='mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
               {mdxSources.map((post: ProjectMetadata, idx: number) => (
-                <ProjectCard key={idx} {...post} />
+                <ProjectCard
+                  key={idx}
+                  project={post}
+                  views={views[post.id] ?? 0}
+                />
               ))}
             </ul>
             <CustomLink

@@ -5,13 +5,28 @@ import { ProjectCard } from '@/components/content/project/ProjectCard';
 import { Layout } from '@/components/layout/Layout';
 import { getAllProjects } from '@/lib/project';
 import { ProjectMetadata } from '@/types/project';
+import { Redis } from '@upstash/redis';
 import { Metadata } from 'next';
+
 export const metadata: Metadata = {
   title: 'Projects',
 };
 
 export default async function index() {
   const mdxSources: ProjectMetadata[] = await getAllProjects();
+  const redis = Redis.fromEnv();
+  const views = (
+    await redis.mget<number[]>(
+      ...mdxSources.map((p) => ['pageviews', 'projects', p.id].join(':')),
+    )
+  ).reduce(
+    (acc, v, i) => {
+      acc[mdxSources[i].id] = v ?? 0;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
+
   return (
     <Layout>
       <section className={`layout`}>
@@ -39,7 +54,7 @@ export default async function index() {
         >
           <ul className='mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
             {mdxSources.map((post: ProjectMetadata, idx: number) => (
-              <ProjectCard key={idx} {...post} />
+              <ProjectCard key={idx} project={post} views={views[post.id]} />
             ))}
           </ul>
         </AnimateDiv>
@@ -47,11 +62,3 @@ export default async function index() {
     </Layout>
   );
 }
-
-// async function getProjects() {
-//   const mdxSources = await getAllProjects();
-
-//   return {
-//     mdxSources,
-//   };
-// }

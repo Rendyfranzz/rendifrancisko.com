@@ -4,8 +4,14 @@ import TechIcons, { type TechListType } from '@/components/icons/TechIcon';
 import CustomImages from '@/components/images/CustomImages';
 import { ProjectMetadata } from '@/types/project';
 import { format, parseISO } from 'date-fns';
+import { FaEye } from 'react-icons/fa';
 
-export const ProjectCard = (project: ProjectMetadata) => {
+interface ProjectCardProps {
+  project: ProjectMetadata;
+  views: number;
+}
+
+export const ProjectCard = ({ project, views }: ProjectCardProps) => {
   return (
     <li
       className='project-card rounded-md md:w-full
@@ -19,7 +25,14 @@ export const ProjectCard = (project: ProjectMetadata) => {
         href={`/projects/${project.id}`}
         className='flex h-full flex-col items-start rounded-md p-4'
       >
-        <h4>{project.title}</h4>
+        <div className='flex justify-between w-full'>
+          <h4>{project.title}</h4>
+          <span className='flex items-center gap-1 text-xs text-zinc-500'>
+            <FaEye className='w-4 h-4' />
+            {Intl.NumberFormat('en-US', { notation: 'compact' }).format(views)}
+          </span>
+        </div>
+
         <p className='mb-auto text-sm text-gray-700 dark:text-gray-300'>
           {project.description}
         </p>

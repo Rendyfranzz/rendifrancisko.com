@@ -12,6 +12,7 @@
     "format:check": "biome check --write ./src"
   },
   "dependencies": {
+    "@upstash/redis": "^1.34.0",
     "axios": "^1.7.4",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",

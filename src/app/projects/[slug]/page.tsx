@@ -1,7 +1,10 @@
 import CustomImages from '@/components/images/CustomImages';
 import { Layout } from '@/components/layout/Layout';
 import { getAllProjects, getProjectBySlug } from '@/lib/project';
+import { ReportView } from '@/lib/views';
 import { format, parseISO } from 'date-fns';
+
+export const revalidate = 60;
 
 export async function generateMetadata({
   params,
@@ -61,6 +64,7 @@ export default async function Index({
 
   return (
     <Layout>
+      <ReportView slug={params.slug} />
       <section className='layout'>
         {meta.thumbnail != null && (
           <CustomImages
