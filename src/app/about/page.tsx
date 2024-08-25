@@ -10,11 +10,14 @@ export default function index() {
   return (
     <Layout>
       <section className='layout'>
-        <div className='prose  dark:prose-invert'>
-          <Accent className='text-3xl font-bold '>About me</Accent>
+        <div className='prose dark:prose-invert'>
+          <Accent className='text-3xl font-bold text-black'>About me</Accent>
           <p>
             My name is
-            <Accent className='font-medium'> Rendi Dwi Francisko.</Accent>
+            <Accent className='font-medium text-black'>
+              {' '}
+              Rendi Dwi Francisko.
+            </Accent>
           </p>
           <p>
             I hold a degree in Informatics from Institut Teknologi Sepuluh
