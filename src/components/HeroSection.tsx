@@ -70,7 +70,7 @@ export default function HeroSection() {
             ))}
           </div>
         </div>
-        <div className='w-[30%] h-[80%] border hidden md:block'></div>
+        {/* <div className='w-[30%] h-[80%] border hidden md:block'></div> */}
         <BG className='z-20 absolute bottom-60 right-6 h-full translate-y-[37%] transform-gpu w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px] opacity-70 dark:opacity-70' />
       </div>
     </AnimateSection>
