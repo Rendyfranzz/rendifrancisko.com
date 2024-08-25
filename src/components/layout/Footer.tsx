@@ -2,7 +2,6 @@ import React from 'react';
 import { IconType } from 'react-icons';
 import { SiGithub, SiGmail, SiLinkedin } from 'react-icons/si';
 import Accent from '../Accent';
-import Spotify from '../Spotify';
 import CustomLink from '../buttons/CustomLink';
 import Tooltip from '../icons/Tippy';
 
@@ -54,7 +53,7 @@ export const Footer = () => {
           </CustomLink>
         </p>
         <p className=''>&copy; Rendi Dwi Francisko 2024</p>
-        <Spotify className='mt-8' />
+        {/* <Spotify className='mt-8' /> */}
       </div>
     </footer>
   );
