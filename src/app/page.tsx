@@ -1,7 +1,7 @@
-import AnimateDiv from '@/components/AnimateDiv';
 import AnimateSection from '@/components/AnimateSection';
 import HeroSection from '@/components/HeroSection';
 import Reveal from '@/components/Reveal';
+import UnstyledReveal from '@/components/UnstyledReveal';
 import CustomLink from '@/components/buttons/CustomLink';
 import { ProjectCard } from '@/components/content/project/ProjectCard';
 import { Layout } from '@/components/layout/Layout';
@@ -32,19 +32,7 @@ export default async function Home() {
           <Reveal>
             <h1>Recently Project</h1>
           </Reveal>
-          <AnimateDiv
-            className='space-y-4 flex flex-col'
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              show: {
-                y: 0,
-                opacity: 1,
-              },
-            }}
-            initial='hidden'
-            animate='show'
-            transition={{ duration: 0.55, delay: 0.5 }}
-          >
+          <UnstyledReveal className='flex flex-col space-y-4 p-1'>
             <ul className='mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
               {mdxSources.map((post: ProjectMetadata, idx: number) => (
                 <ProjectCard
@@ -60,7 +48,7 @@ export default async function Home() {
             >
               View All Projects
             </CustomLink>
-          </AnimateDiv>
+          </UnstyledReveal>
         </div>
       </AnimateSection>
     </Layout>
