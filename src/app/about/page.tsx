@@ -20,12 +20,12 @@ export default function index() {
             </Accent>
           </p>
           <p>
-            I hold a degree in Informatics from Institut Teknologi Sepuluh
-            Nopember. My programming journey began with exploring various
-            technologies, which quickly led me to work on several projects as a
-            Frontend Developer. Over time, I have focused on web development,
-            specializing in JavaScript technologies, particularly React and
-            Next.js.
+            I am a graduate of Informatics Engineering from Sepuluh Nopember
+            Institute of Technology. My journey started with exploring various
+            technologies, which quickly led me to work on several projects. Over
+            time, I focused on web development specializing in Frontend and
+            Backend. On the Frontend I use JavaScript, especially React and
+            Next.js, while on the Backend I use Go, Express JS, and Restify JS.
           </p>
           <p>
             On this page, I showcase some of the projects I have been involved
