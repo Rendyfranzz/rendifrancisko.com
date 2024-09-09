@@ -1,0 +1,40 @@
+name: Node CD 🚀
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code 🧩
+      uses: actions/checkout@v4
+
+    - name: Deploy using SSH 🌐
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          echo "Navigating to application directory..."
+          cd /var/www/v2/rendifrancisko.com/
+          
+          echo "Pulling latest changes from git..."
+          git pull origin master
+          
+          echo "Installing dependencies..."
+          pnpm install
+          
+          echo "Building application..."
+          pnpm build
+          
+          echo "Restarting application..."
+          pm2 restart rendi
+          
+          echo "Deployment finished!"
