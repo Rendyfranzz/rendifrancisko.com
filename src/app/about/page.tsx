@@ -33,7 +33,7 @@ export default function index() {
             to discuss anything or share your thoughts, feedback, or
             suggestions, please feel free to get in touch. I am always open to
             new conversations and collaborations. I look forward to hearing from
-            you!
+            you!.
           </p>
         </div>
       </section>
