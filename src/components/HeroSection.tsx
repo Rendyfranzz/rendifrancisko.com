@@ -58,7 +58,7 @@ export default function HeroSection() {
                 <CustomLink
                   key={index}
                   className='inline-flex space-x-2 items-center justify-center rounded-md shadow-sm border p-1 hover:bg-primary-300 transition-colors
-                   dark:hover:text-black dark:hover:bg-primary-300 hover:scale-105  duration-100 ease-in-out'
+                   dark:hover:text-black dark:hover:bg-primary-300 duration-100 ease-in-out'
                   href={social.href}
                 >
                   <social.icon className='my-auto h-6 w-6 align-middle ' />
