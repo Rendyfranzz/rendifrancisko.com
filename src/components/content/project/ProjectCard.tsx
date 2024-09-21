@@ -4,7 +4,7 @@ import TechIcons, { type TechListType } from '@/components/icons/TechIcon';
 import CustomImages from '@/components/images/CustomImages';
 import { ProjectMetadata } from '@/types/project';
 import { format, parseISO } from 'date-fns';
-import { FaEye } from 'react-icons/fa';
+import { LuEye } from 'react-icons/lu';
 
 interface ProjectCardProps {
   project: ProjectMetadata;
@@ -14,7 +14,7 @@ interface ProjectCardProps {
 export const ProjectCard = ({ project, views }: ProjectCardProps) => {
   return (
     <li
-      className='project-card rounded-md md:w-full
+      className='rounded-md md:w-full
         group
         border  hover:border-primary-500
         scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu
@@ -28,7 +28,7 @@ export const ProjectCard = ({ project, views }: ProjectCardProps) => {
         <div className='flex justify-between w-full'>
           <h4>{project.title}</h4>
           <span className='flex items-center gap-1 text-xs text-zinc-500'>
-            <FaEye className='w-4 h-4' />
+            <LuEye className='w-4 h-4' />
             {Intl.NumberFormat('en-US', { notation: 'compact' }).format(views)}
           </span>
         </div>

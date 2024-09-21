@@ -1,7 +1,7 @@
 'use client';
-import { animate, useMotionTemplate, useMotionValue } from 'framer-motion';
-import { useTheme } from 'next-themes';
-import { useEffect } from 'react';
+// import { animate, useMotionTemplate, useMotionValue } from 'framer-motion';
+// import { useTheme } from 'next-themes';
+// import { useEffect } from 'react';
 import { SiGithub, SiLinkedin } from 'react-icons/si';
 import Accent from './Accent';
 import AnimateSection from './AnimateSection';
@@ -9,29 +9,26 @@ import BG from './BG';
 import Reveal from './Reveal';
 import CustomLink from './buttons/CustomLink';
 import { Social } from './layout/Footer';
+import { ShootingStars } from './ui/ShootingStars';
+import { StarsBackground } from './ui/StarsBackground';
 
 export default function HeroSection() {
-  const COLORS = ['#7900f3', '#1E67C6', '#026dba', '#1000f3', '#2E3A8C'];
-  const { theme } = useTheme();
-  const color = useMotionValue(COLORS[0]);
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 100%, ${theme === 'dark' ? '#000' : '#fff'} 40%, ${color})`;
+  // const COLORS = ['#7900f3', '#1E67C6', '#026dba', '#1000f3', '#2E3A8C'];
+  // const { theme } = useTheme();
+  // const color = useMotionValue(COLORS[0]);
+  // const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 100%, ${theme === 'dark' ? '#000' : '#fff'} 40%, ${color})`;
 
-  useEffect(() => {
-    animate(color, COLORS, {
-      duration: 10,
-      repeat: Infinity,
-      repeatType: 'mirror',
-      ease: 'easeInOut',
-    });
-  }, []);
+  // useEffect(() => {
+  //   animate(color, COLORS, {
+  //     duration: 10,
+  //     repeat: Infinity,
+  //     repeatType: 'mirror',
+  //     ease: 'easeInOut',
+  //   });
+  // }, []);
   return (
-    <AnimateSection
-      style={{
-        backgroundImage,
-      }}
-      className='min-h-main'
-    >
-      <div className='h-screen flex flex-row items-center justify-between layout relative overflow-hidden'>
+    <AnimateSection className='min-h-main relative'>
+      <div className='h-screen flex flex-row items-center justify-between layout relative overflow-hidden z-50'>
         <div className='h-[70%] space-y-4'>
           <div className='flex flex-col'>
             <Reveal>
@@ -73,6 +70,8 @@ export default function HeroSection() {
         {/* <div className='w-[30%] h-[80%] border hidden md:block'></div> */}
         <BG className='z-20 absolute bottom-60 right-6 h-full translate-y-[37%] transform-gpu w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px] opacity-70 dark:opacity-70' />
       </div>
+      <ShootingStars />
+      <StarsBackground />
     </AnimateSection>
   );
 }
