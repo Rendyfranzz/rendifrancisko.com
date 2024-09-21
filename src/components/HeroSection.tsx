@@ -28,7 +28,7 @@ export default function HeroSection() {
   // }, []);
   return (
     <AnimateSection className='min-h-main relative'>
-      <div className='h-screen flex flex-row items-center justify-between layout relative overflow-hidden z-50'>
+      <div className='h-screen flex flex-row items-center justify-between layout relative overflow-hidden z-40'>
         <div className='h-[70%] space-y-4'>
           <div className='flex flex-col'>
             <Reveal>
