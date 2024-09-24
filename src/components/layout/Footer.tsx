@@ -4,6 +4,7 @@ import { SiGithub, SiGmail, SiLinkedin } from 'react-icons/si';
 import Accent from '../Accent';
 import CustomLink from '../buttons/CustomLink';
 import Tooltip from '../icons/Tippy';
+import { LinkPreview } from '../ui/LinkPreview';
 
 export const Footer = () => {
   return (
@@ -26,32 +27,30 @@ export const Footer = () => {
             </Tooltip>
           ))}
         </div>
-        <p className='text-center'>
+        <div className='text-center'>
           Made using{' '}
-          <CustomLink
-            openNewTab
-            href='https://nextjs.org'
+          <LinkPreview
+            url='https://nextjs.org'
             className='text-primary-500 hover:underline'
           >
             Next.js
-          </CustomLink>
+          </LinkPreview>
           {', '}
-          <CustomLink
-            openNewTab
-            href='https://www.framer.com/'
+          <LinkPreview
+            url='https://www.framer.com/'
             className='text-primary-500 hover:underline'
           >
             Framer Motion
-          </CustomLink>
+          </LinkPreview>
           {', '}
           and{' '}
-          <CustomLink
+          <LinkPreview
             className='text-primary-500 hover:underline'
-            href='https://tailwindcss.com'
+            url='https://tailwindcss.com'
           >
             Tailwind CSS
-          </CustomLink>
-        </p>
+          </LinkPreview>
+        </div>
         <p className=''>&copy; Rendi Dwi Francisko 2024</p>
         {/* <Spotify className='mt-8' /> */}
       </div>

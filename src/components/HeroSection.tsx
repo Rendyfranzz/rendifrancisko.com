@@ -51,7 +51,7 @@ export default function HeroSection() {
           </div>
           <div className='flex space-x-4'>
             {socials.map((social, index) => (
-              <Reveal>
+              <Reveal key={index}>
                 <CustomLink
                   key={index}
                   className='inline-flex space-x-2 items-center justify-center rounded-md shadow-sm border p-1 hover:bg-primary-300 transition-colors
