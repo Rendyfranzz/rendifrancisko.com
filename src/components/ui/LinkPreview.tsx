@@ -95,6 +95,7 @@ export const LinkPreview = ({
         <HoverCardPrimitive.Trigger
           onMouseMove={handleMouseMove}
           className={cn('cursor-newtab', className)}
+          target='_blank'
           href={url}
         >
           {children}
@@ -128,6 +129,7 @@ export const LinkPreview = ({
               >
                 <Link
                   href={url}
+                  target='_blank'
                   className='block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800'
                   style={{ fontSize: 0 }}
                 >
