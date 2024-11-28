@@ -54,7 +54,7 @@ export default function HeroSection() {
               <Reveal key={index}>
                 <CustomLink
                   key={index}
-                  className='inline-flex space-x-2 items-center justify-center rounded-md shadow-sm border p-1 hover:bg-primary-300 transition-colors
+                  className='inline-flex space-x-2 z-40 items-center justify-center rounded-md shadow-sm border p-1 hover:bg-primary-300 transition-colors
                    dark:hover:text-black dark:hover:bg-primary-300 duration-100 ease-in-out'
                   href={social.href}
                 >
@@ -68,7 +68,7 @@ export default function HeroSection() {
           </div>
         </div>
         {/* <div className='w-[30%] h-[80%] border hidden md:block'></div> */}
-        <BG className='z-20 absolute bottom-60 right-6 h-full translate-y-[37%] transform-gpu w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px] opacity-70 dark:opacity-70' />
+        <BG className='hidden md:block z-20 absolute bottom-60 right-6 h-full translate-y-[37%] transform-gpu w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px] opacity-70 dark:opacity-70' />
       </div>
       <ShootingStars />
       <StarsBackground />
