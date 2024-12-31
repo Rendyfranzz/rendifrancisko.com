@@ -18,6 +18,7 @@ export async function generateMetadata({
     if (!project) return;
     return {
       title: project.meta.title,
+      description: project.meta.description,
       openGraph: {
         title: project.meta.title,
         description: project.meta.description,
