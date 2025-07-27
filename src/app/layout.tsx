@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rendifrancisko.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'Rendi Francisko',
     template: `%s | rendifrancisko.com`,
