@@ -22,30 +22,43 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Rendi Francisko',
     type: 'website',
+    url: 'https://rendifrancisko.com',
     siteName: 'Rendi Francisko',
     description:
       'Explore the online portfolio and blog of Rendi Dwi Francisko. Highlighting my projects and offering insights into web development practices.',
     images: [
       {
-        url: '/images/og-image.png',
-        width: 1208,
-        height: 1208,
-        alt: 'Rendi Francisko',
+        url: 'https://rendifrancisko.com/api/og',
+        width: 1200,
+        height: 630,
+        alt: 'Rendi Francisko - Software Engineer',
+        type: 'image/png',
       },
     ],
+    locale: 'en_US',
   },
   twitter: {
     title: 'Rendi Francisko',
     site: '@RendiFrancisko',
+    creator: '@RendiFrancisko',
     card: 'summary_large_image',
-    images: {
-      url: '/images/og-image.png',
-      width: 1208,
-      height: 1208,
-      alt: 'Rendi Francisko',
-    },
+    images: [
+      {
+        url: 'https://rendifrancisko.com/api/og',
+        width: 1200,
+        height: 630,
+        alt: 'Rendi Francisko - Software Engineer',
+      },
+    ],
     description:
       'Explore the online portfolio and blog of Rendi Dwi Francisko. Highlighting my projects and offering insights into web development practices.',
+  },
+  other: {
+    'og:image:secure_url': 'https://rendifrancisko.com/api/og',
+    'og:image:type': 'image/png',
+    'og:image:width': '1200',
+    'og:image:height': '630',
+    'twitter:image:src': 'https://rendifrancisko.com/api/og',
   },
 };
 
