@@ -2,13 +2,13 @@
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 import CustomLink from '../buttons/CustomLink';
-import ThemeButton from '../buttons/ThemeButton';
+import { ThemeButton } from '../buttons/ThemeButton';
 
 export default function Header() {
   const pathName = usePathname();
 
   return (
-    <header className='sticky top-0 shadow-sm z-50 transition-colors bg-white dark:bg-black'>
+    <header className='sticky top-0 shadow-xs z-50 transition-colors bg-white dark:bg-black'>
       <nav className='flex items-center layout justify-center '>
         <div className='w-full flex justify-between'>
           <ul className='flex flex-row justify-center items-center space-x-6 font-bold'>
@@ -28,7 +28,7 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <ThemeButton />
+          <ThemeButton className='p-2 cursor-pointer' />
         </div>
       </nav>
     </header>
