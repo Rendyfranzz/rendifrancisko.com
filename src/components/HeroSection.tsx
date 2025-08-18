@@ -54,7 +54,7 @@ export default function HeroSection() {
               <Reveal key={index}>
                 <CustomLink
                   key={index}
-                  className='inline-flex space-x-2 z-40 items-center justify-center rounded-md shadow-sm border p-1 hover:bg-primary-300 transition-colors
+                  className='inline-flex space-x-2 z-40 items-center justify-center rounded-md shadow-xs border p-1 hover:bg-primary-300 transition-colors
                    dark:hover:text-black dark:hover:bg-primary-300 duration-100 ease-in-out'
                   href={social.href}
                 >

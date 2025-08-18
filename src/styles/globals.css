@@ -1,19 +1,70 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  /* Customize these variable */
-  /* https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo */
-  --tw-clr-primary-200: 219 255 0;
-  --tw-clr-primary-300: 0 255 255;
-  --tw-clr-primary-400: 121 0 243;
-  --tw-clr-primary-500: 0 196 253;
+@config '../../tailwind.config.ts';
 
-  --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
-  --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
-  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #7900f3 */
-  --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility animated-underline {
+  background-image:
+    linear-gradient(#33333300, #33333300),
+    linear-gradient(
+      to right,
+      var(--color-primary-400),
+      var(--color-primary-500)
+    );
+  background-size:
+    100% 2px,
+    0 2px;
+  background-position:
+    100% 100%,
+    0 100%;
+  background-repeat: no-repeat;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: 0.3s ease;
+    transition-property: background-size, color, background-color, border-color;
+  }
+  &:hover {
+    background-size:
+      0 2px,
+      100% 2px;
+  }
+  &:focus-visible {
+    background-size:
+      0 2px,
+      100% 2px;
+  }
+}
+
+@layer utilities {
+  :root {
+    /* Customize these variable */
+    /* https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo */
+    --tw-clr-primary-200: 219 255 0;
+    --tw-clr-primary-300: 0 255 255;
+    --tw-clr-primary-400: 121 0 243;
+    --tw-clr-primary-500: 0 196 253;
+
+    --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
+    --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
+    --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #7900f3 */
+    --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
+  }
 }
 @layer base {
 
@@ -70,37 +121,5 @@
 
   .cursor-newtab {
     cursor: url('/images/new-tab.png') 10 10, pointer;
-  }
-}
-
-
-@layer utilities {
-  .animated-underline {
-    background-image: linear-gradient(#33333300, #33333300),
-      linear-gradient(
-        to right,
-        var(--color-primary-400),
-        var(--color-primary-500)
-      );
-    background-size:
-      100% 2px,
-      0 2px;
-    background-position:
-      100% 100%,
-      0 100%;
-    background-repeat: no-repeat;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .animated-underline {
-      transition: 0.3s ease;
-      transition-property: background-size, color, background-color,
-        border-color;
-    }
-  }
-  .animated-underline:hover,
-  .animated-underline:focus-visible {
-    background-size:
-      0 2px,
-      100% 2px;
   }
 }

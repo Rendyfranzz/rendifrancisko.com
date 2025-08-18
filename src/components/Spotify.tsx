@@ -35,13 +35,13 @@ export default function Spotify({
             'relative flex items-center gap-4 p-3',
             'border dark:border-gray-600',
             'border-thin w-72 rounded-md',
-            'shadow-sm dark:shadow-none',
-            'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+            'shadow-xs dark:shadow-none',
+            'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300',
           )}
         >
           <CustomImages
             useSkeleton
-            className='w-16 shadow-sm dark:shadow-none'
+            className='w-16 shadow-xs dark:shadow-none'
             src={data.albumImageUrl}
             alt={data.album}
             width={640}

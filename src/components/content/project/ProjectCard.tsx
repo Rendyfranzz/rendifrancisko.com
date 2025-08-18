@@ -58,7 +58,7 @@ export const ProjectCard = ({ project, views }: ProjectCardProps) => {
         </time>
 
         <span
-          className='font-medium flex flex-col after:h-[0.15rem] after:max-w-0 after:group-hover:max-w-full 
+          className='font-medium flex flex-col after:h-[0.15rem] after:max-w-0 group-hover:after:max-w-full 
           after:bg-primary-500 after:transition-all after:duration-500 after:ease-in-out after:rounded-r-md'
         >
           See more →
