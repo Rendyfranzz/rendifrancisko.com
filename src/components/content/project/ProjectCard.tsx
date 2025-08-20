@@ -33,9 +33,7 @@ export const ProjectCard = ({ project, views }: ProjectCardProps) => {
           </span>
         </div>
 
-        <p className='mb-auto text-sm text-gray-700 dark:text-gray-300'>
-          {project.description}
-        </p>
+        <p className='mb-auto text-sm text-foreground'>{project.description}</p>
         <div className='mt-2 mb-1'>
           <TechIcons techs={project.techStack.split(',') as TechListType[]} />
         </div>

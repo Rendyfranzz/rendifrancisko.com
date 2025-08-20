@@ -71,7 +71,7 @@ export default function RootLayout({
     <html lang='en' className='scroll-smooth!' suppressHydrationWarning>
       <body
         className={cn(
-          'bg-white transition-colors dark:bg-black dark:text-gray-300',
+          ' transition-colors bg-background text-foreground antialiased',
           inter.className,
         )}
       >

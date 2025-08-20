@@ -1,15 +1,12 @@
 @import 'tailwindcss';
 
-@config '../../tailwind.config.ts';
+@plugin '@tailwindcss/typography';
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+@source './src/**/*.{js,jsx,ts,tsx}';
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+@variant dark (&:is(.dark *));
+
+
 @layer base {
   *,
   ::after,
@@ -51,20 +48,96 @@
   }
 }
 
+@utility prose {
+  max-width: var(--prose-max-width);
+}
+
 @layer utilities {
-  :root {
-    /* Customize these variable */
-    /* https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo */
+:root {
     --tw-clr-primary-200: 219 255 0;
     --tw-clr-primary-300: 0 255 255;
     --tw-clr-primary-400: 121 0 243;
     --tw-clr-primary-500: 0 196 253;
+    --prose-max-width: 100ch;
 
     --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
     --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
     --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #7900f3 */
     --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
   }
+
+}
+
+
+@theme inline {
+  --color-primary-200: var(--clr-primary-200);
+  --color-primary-300: var(--clr-primary-300);
+  --color-primary-400: var(--clr-primary-400);
+  --color-primary-500: var(--clr-primary-500);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-inter: 'Inter', sans-serif;
+}
+
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0% 0 0);
+  --foreground: oklch(90.748% 0.00106 11.828);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
 }
 @layer base {
 
