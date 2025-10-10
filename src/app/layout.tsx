@@ -5,6 +5,7 @@ import ProgressBarProvider from '@/components/ProgressBarProvider';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { cn } from '@/lib/utils';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import React from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -150,6 +151,7 @@ export default function RootLayout({
           </ThemeProvider>
         </ProgressBarProvider>
         <JsonLd id='global-structured-data' data={structuredData} />
+        <SpeedInsights />
       </body>
     </html>
   );
