@@ -1,8 +1,10 @@
 import CustomImages from '@/components/images/CustomImages';
 import { Layout } from '@/components/layout/Layout';
+import { JsonLd } from '@/components/seo/JsonLd';
 import { getAllProjects, getProjectBySlug } from '@/lib/project';
 import { ReportView } from '@/lib/views';
 import { format, parseISO } from 'date-fns';
+import type { Metadata } from 'next';
 
 export const revalidate = 60;
 
@@ -12,10 +14,18 @@ export async function generateMetadata({
   params: {
     slug: string;
   };
-}) {
+}): Promise<Metadata> {
   try {
     const project = await getProjectBySlug((params?.slug as string) + '.mdx');
-    if (!project) return;
+    if (!project) {
+      return {
+        title: 'Project not found',
+        description: 'The requested project could not be located.',
+      };
+    }
+    const keywords = project.meta.techStack
+      .split(',')
+      .map((item) => item.trim());
     return {
       title: project.meta.title,
       description: project.meta.description,
@@ -26,6 +36,8 @@ export async function generateMetadata({
         title: project.meta.title,
         description: project.meta.description,
         url: `/projects/${params.slug}`,
+        type: 'article',
+        publishedTime: project.meta.date,
         images: [
           {
             url: project.meta.thumbnail,
@@ -46,6 +58,12 @@ export async function generateMetadata({
           alt: project.meta.title,
         },
       },
+      keywords,
+      authors: [
+        { name: 'Rendi Dwi Francisko', url: 'https://rendifrancisko.com' },
+      ],
+      creator: 'Rendi Dwi Francisko',
+      publisher: 'Rendi Dwi Francisko',
     };
   } catch (error) {
     console.error(error);
@@ -66,6 +84,23 @@ export default async function Index({
   const project = await getProjectBySlug((params?.slug as string) + '.mdx');
 
   const { meta, mdxSource } = project;
+  const projectUrl = `https://rendifrancisko.com/projects/${params.slug}`;
+  const projectJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    headline: meta.title,
+    name: meta.title,
+    description: meta.description,
+    url: projectUrl,
+    datePublished: meta.date,
+    image: meta.thumbnail,
+    author: {
+      '@type': 'Person',
+      name: 'Rendi Dwi Francisko',
+      url: 'https://rendifrancisko.com',
+    },
+    keywords: meta.techStack.split(',').map((item) => item.trim()),
+  };
 
   return (
     <Layout>
@@ -88,6 +123,10 @@ export default async function Index({
         </div>
         <div className='prose dark:prose-invert lg:prose-lg'>{mdxSource}</div>
       </section>
+      <JsonLd
+        id={`project-${params.slug}-structured-data`}
+        data={projectJsonLd}
+      />
     </Layout>
   );
 }

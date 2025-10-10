@@ -10,7 +10,9 @@ export const Layout = ({ children }: Page) => {
   return (
     <>
       <Header />
-      {children}
+      <main id='main-content' role='main' className='flex-1'>
+        {children}
+      </main>
       <Footer />
     </>
   );

@@ -30,7 +30,7 @@ export default async function Home() {
       <AnimateSection>
         <div className='layout min-h-main'>
           <Reveal>
-            <h1>Recently Project</h1>
+            <h2>Recent Projects</h2>
           </Reveal>
           <UnstyledReveal className='flex flex-col space-y-4 p-1'>
             <ul className='mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>

@@ -32,13 +32,10 @@ export default function HeroSection() {
         <div className='h-[70%] space-y-4'>
           <div className='flex flex-col'>
             <Reveal>
-              <p className='h1 '>HELLO ,I AM</p>
-            </Reveal>
-            <Reveal>
-              <p className='h1  mt-2'>
-                <Accent className='h1 '>RENDI </Accent>
-                DWI FRANCISKO
-              </p>
+              <h1 className='h1 uppercase tracking-wide'>
+                <span className='block'>Hello, I am</span>
+                <Accent className='h1'>Rendi</Accent> Dwi Francisko
+              </h1>
             </Reveal>
             <Reveal>
               <div className='w-full mt-8 md:mt-12'>

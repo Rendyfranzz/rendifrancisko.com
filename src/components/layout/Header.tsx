@@ -9,12 +9,18 @@ export default function Header() {
 
   return (
     <header className='sticky top-0 shadow-xs z-50 transition-colors bg-white dark:bg-black'>
-      <nav className='flex items-center layout justify-center '>
+      <nav
+        className='flex items-center layout justify-center '
+        aria-label='Primary navigation'
+      >
         <div className='w-full flex justify-between'>
           <ul className='flex flex-row justify-center items-center space-x-6 font-bold'>
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
-                <CustomLink href={href}>
+                <CustomLink
+                  href={href}
+                  aria-current={pathName === href ? 'page' : undefined}
+                >
                   <p
                     className={cn(
                       '',
