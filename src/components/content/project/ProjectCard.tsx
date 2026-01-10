@@ -14,30 +14,37 @@ interface ProjectCardProps {
 export const ProjectCard = ({ project, views }: ProjectCardProps) => {
   return (
     <li
-      className='rounded-md md:w-full
+      className='rounded-xl md:w-full
         group
-        border  hover:border-primary-500
-        scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu
-        transition duration-100
+        bg-card border border-border/50
+        hover:border-primary-500/50 hover:shadow-lg hover:shadow-primary-500/10
+        scale-100 hover:scale-[1.02] active:scale-[0.98] motion-safe:transform-gpu
+        transition-all duration-300 ease-out
         motion-reduce:hover:scale-100'
     >
       <CustomLink
         href={`/projects/${project.id}`}
-        className='flex h-full flex-col items-start rounded-md p-4'
+        className='flex h-full flex-col p-5'
       >
-        <div className='flex justify-between w-full'>
-          <h4>{project.title}</h4>
-          <span className='flex items-center gap-1 text-xs text-zinc-500'>
-            <LuEye className='w-4 h-4' />
+        <div className='flex justify-between items-start w-full mb-3'>
+          <h4 className='font-semibold text-lg group-hover:text-primary-500 transition-colors duration-200'>
+            {project.title}
+          </h4>
+          <span className='flex items-center gap-1 text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full'>
+            <LuEye className='w-3.5 h-3.5' />
             {Intl.NumberFormat('en-US', { notation: 'compact' }).format(views)}
           </span>
         </div>
 
-        <p className='mb-auto text-sm text-foreground'>{project.description}</p>
-        <div className='mt-2 mb-1'>
+        <p className='mb-auto text-sm text-muted-foreground line-clamp-2 group-hover:text-foreground transition-colors duration-200'>
+          {project.description}
+        </p>
+
+        <div className='mt-4 mb-3'>
           <TechIcons techs={project.techStack.split(',') as TechListType[]} />
         </div>
-        <div className='h-40 overflow-hidden'>
+
+        <div className='h-36 overflow-hidden rounded-lg mb-3'>
           {project.thumbnail != null && (
             <CustomImages
               priority
@@ -46,21 +53,23 @@ export const ProjectCard = ({ project, views }: ProjectCardProps) => {
               alt={project.title}
               width={1000}
               height={792}
-              className='rounded-lg w-full'
+              className='rounded-lg w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out'
             />
           )}
         </div>
 
-        <time dateTime={project.date} className='block text-sm text-slate-600'>
-          {format(parseISO(project.date), 'LLLL d, yyyy')}
-        </time>
+        <div className='flex items-center justify-between'>
+          <time
+            dateTime={project.date}
+            className='text-xs text-muted-foreground'
+          >
+            {format(parseISO(project.date), 'MMM d, yyyy')}
+          </time>
 
-        <span
-          className='font-medium flex flex-col after:h-[0.15rem] after:max-w-0 group-hover:after:max-w-full 
-          after:bg-primary-500 after:transition-all after:duration-500 after:ease-in-out after:rounded-r-md'
-        >
-          See more →
-        </span>
+          <span className='text-sm font-medium text-primary-500 group-hover:translate-x-1 transition-transform duration-200'>
+            See more →
+          </span>
+        </div>
       </CustomLink>
     </li>
   );

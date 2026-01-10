@@ -1,0 +1,58 @@
+---
+title: Building My Portfolio with Next.js 14
+description: A deep dive into how I built my personal portfolio using Next.js 14, Tailwind CSS, and modern web technologies.
+thumbnail: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=630&fit=crop
+date: '2024-01-15'
+tags: nextjs,tailwindcss,react,portfolio
+---
+
+## Introduction
+
+Building a personal portfolio is one of the most rewarding projects a developer can undertake. It not only showcases your skills but also serves as a learning experience where you can experiment with new technologies.
+
+In this blog post, I'll walk you through how I built my portfolio using **Next.js 14**, **Tailwind CSS**, and various modern web technologies.
+
+## Tech Stack Selection
+
+When starting this project, I wanted to use the latest and most efficient tools:
+
+- **Next.js 14** for the framework, taking advantage of App Router and Server Components
+- **Tailwind CSS 4** for styling
+- **TypeScript** for type safety
+- **MDX** for content management
+- **Framer Motion** for animations
+- **Upstash Redis** for analytics
+
+## Key Features
+
+### MDX-Based Content
+
+I chose MDX for managing project descriptions because it allows writing content in Markdown while embedding React components. This makes it easy to include custom images, code snippets, and interactive elements.
+
+### Server Components
+
+By default, I used Server Components for better performance. Data fetching happens directly in the component, eliminating the need for useEffect or SWR for server-side data.
+
+### SEO Optimization
+
+The portfolio includes:
+- Dynamic metadata generation
+- JSON-LD structured data
+- OpenGraph and Twitter cards
+- Sitemap and robots.txt
+
+## Challenges Faced
+
+### Managing Animations
+
+Balancing animations with performance was challenging. I used Framer Motion selectively, ensuring animations are smooth and don't impact Core Web Vitals.
+
+### Image Optimization
+
+Using Next.js Image component with custom loaders helped optimize image delivery across different devices.
+
+## Conclusion
+
+Building this portfolio was an incredible learning experience. It allowed me to explore Next.js 14's features deeply and create something that truly represents my work and personality.
+
+If you're building your own portfolio, I highly recommend trying out these technologies. The developer experience is excellent, and the end result is performant and maintainable.

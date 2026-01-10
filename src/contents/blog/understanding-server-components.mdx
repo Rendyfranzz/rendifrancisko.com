@@ -1,0 +1,60 @@
+---
+title: Understanding React Server Components
+description: A comprehensive guide to React Server Components and how they change the way we build web applications.
+thumbnail: https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=630&fit=crop
+date: '2024-02-20'
+tags: react,nextjs,server-components
+---
+
+## What are Server Components?
+
+React Server Components (RSC) represent a paradigm shift in how we build React applications. Unlike traditional client-side components, Server Components run exclusively on the server, reducing bundle size and improving performance.
+
+## Key Benefits
+
+### 1. Reduced Bundle Size
+
+Server Components don't add to the JavaScript bundle sent to the client. This means faster initial page loads and better performance on mobile devices.
+
+### 2. Direct Backend Access
+
+Since RSCs run on the server, they can directly access databases, file systems, and other backend resources without needing API endpoints.
+
+### 3. Automatic Code Splitting
+
+Client components imported by Server Components are automatically code-split, meaning they're only loaded when needed.
+
+## How It Works
+
+In Next.js 14 with App Router, components are Server Components by default. You add `'use client'` directive only when you need client-side interactivity.
+
+```tsx
+// This is a Server Component by default
+async function getData() {
+  const res = await fetch('https://api.example.com/data')
+  return res.json()
+}
+
+export default async function Page() {
+  const data = await getData()
+  return <main>{/* render data */}</main>
+}
+```
+
+## When to Use Server Components
+
+- Fetching data from databases or APIs
+- Rendering static content
+- Accessing backend resources
+- Keeping sensitive information on the server
+
+## When to Use Client Components
+
+- Interactive elements (onClick, onSubmit)
+- State management (useState, useEffect)
+- Browser-only APIs
+- React hooks
+
+## Conclusion
+
+React Server Components fundamentally change how we architect React applications. By understanding when to use Server vs Client components, you can build more performant and maintainable applications.

@@ -2,8 +2,7 @@ import { TableOfContents } from '@/components/content/blog/TableOfContents';
 import CustomImages from '@/components/images/CustomImages';
 import { Layout } from '@/components/layout/Layout';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { getAllProjects, getProjectBySlug } from '@/lib/project';
-import { ReportView } from '@/lib/views';
+import { getAllBlogs, getBlogBySlug } from '@/lib/blog';
 import { format, parseISO } from 'date-fns';
 import type { Metadata } from 'next';
 
@@ -17,46 +16,44 @@ export async function generateMetadata({
   };
 }): Promise<Metadata> {
   try {
-    const project = await getProjectBySlug((params?.slug as string) + '.mdx');
-    if (!project) {
+    const blog = await getBlogBySlug((params?.slug as string) + '.mdx');
+    if (!blog) {
       return {
-        title: 'Project not found',
-        description: 'The requested project could not be located.',
+        title: 'Blog post not found',
+        description: 'The requested blog post could not be located.',
       };
     }
-    const keywords = project.meta.techStack
-      .split(',')
-      .map((item) => item.trim());
+    const keywords = blog.meta.tags.split(',').map((item) => item.trim());
     return {
-      title: project.meta.title,
-      description: project.meta.description,
+      title: blog.meta.title,
+      description: blog.meta.description,
       alternates: {
-        canonical: `/projects/${params.slug}`,
+        canonical: `/blog/${params.slug}`,
       },
       openGraph: {
-        title: project.meta.title,
-        description: project.meta.description,
-        url: `/projects/${params.slug}`,
+        title: blog.meta.title,
+        description: blog.meta.description,
+        url: `/blog/${params.slug}`,
         type: 'article',
-        publishedTime: project.meta.date,
+        publishedTime: blog.meta.date,
         images: [
           {
-            url: project.meta.thumbnail,
+            url: blog.meta.thumbnail,
             width: 1200,
             height: 630,
-            alt: project.meta.title,
+            alt: blog.meta.title,
           },
         ],
       },
       twitter: {
-        title: project.meta.title,
-        description: project.meta.description,
+        title: blog.meta.title,
+        description: blog.meta.description,
         card: 'summary_large_image',
         images: {
-          url: project.meta.thumbnail,
+          url: blog.meta.thumbnail,
           width: 1200,
           height: 630,
-          alt: project.meta.title,
+          alt: blog.meta.title,
         },
       },
       keywords,
@@ -82,17 +79,17 @@ export default async function Index({
     slug: string;
   };
 }) {
-  const project = await getProjectBySlug((params?.slug as string) + '.mdx');
+  const blog = await getBlogBySlug((params?.slug as string) + '.mdx');
 
-  const { meta, mdxSource, headings } = project;
-  const projectUrl = `https://rendifrancisko.com/projects/${params.slug}`;
-  const projectJsonLd = {
+  const { meta, mdxSource, headings } = blog;
+  const blogUrl = `https://rendifrancisko.com/blog/${params.slug}`;
+  const blogJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'CreativeWork',
+    '@type': 'BlogPosting',
     headline: meta.title,
     name: meta.title,
     description: meta.description,
-    url: projectUrl,
+    url: blogUrl,
     datePublished: meta.date,
     image: meta.thumbnail,
     author: {
@@ -100,13 +97,14 @@ export default async function Index({
       name: 'Rendi Dwi Francisko',
       url: 'https://rendifrancisko.com',
     },
-    keywords: meta.techStack.split(',').map((item) => item.trim()),
+    keywords: meta.tags.split(',').map((item) => item.trim()),
+    articleSection: 'Technology',
+    inLanguage: 'en-US',
   };
 
   return (
     <Layout>
       <TableOfContents headings={headings} />
-      <ReportView slug={params.slug} />
       <section className='layout'>
         {meta.thumbnail != null && (
           <CustomImages
@@ -122,21 +120,28 @@ export default async function Index({
           <time dateTime={meta.date} className='text-sm text-slate-600'>
             {format(parseISO(meta.date), 'LLLL d, yyyy')}
           </time>
+          <div className='mt-2 flex flex-wrap justify-center gap-1'>
+            {meta.tags.split(',').map((tag) => (
+              <span
+                key={tag}
+                className='text-xs px-2 py-0.5 bg-secondary/10 text-secondary rounded-full'
+              >
+                {tag.trim()}
+              </span>
+            ))}
+          </div>
         </div>
         <div className='prose dark:prose-invert lg:prose-lg'>{mdxSource}</div>
       </section>
-      <JsonLd
-        id={`project-${params.slug}-structured-data`}
-        data={projectJsonLd}
-      />
+      <JsonLd id={`blog-${params.slug}-structured-data`} data={blogJsonLd} />
     </Layout>
   );
 }
 
 export async function generateStaticParams() {
-  const projects = await getAllProjects();
-  if (!projects) return [];
-  return projects.map((project) => ({
-    slug: project.id as string,
+  const blogs = await getAllBlogs();
+  if (!blogs) return [];
+  return blogs.map((blog) => ({
+    slug: blog.id as string,
   }));
 }
