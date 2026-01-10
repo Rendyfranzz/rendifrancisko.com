@@ -130,7 +130,7 @@ export const TableOfContents = ({ headings }: TableOfContentsProps) => {
       <div
         className={`
           fixed inset-0 z-50 xl:hidden
-          transition-all duration-500 ease-in-out
+          transition-all duration-300 ease-in-out
           ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}
         `}
       >
