@@ -6,9 +6,14 @@ import React, { useRef } from 'react';
 interface RevealProps {
   children: React.ReactNode;
   width?: 'w-fit' | 'w-full';
+  className?: string;
 }
 
-export default function Reveal({ children, width = 'w-fit' }: RevealProps) {
+export default function Reveal({
+  children,
+  width = 'w-fit',
+  className,
+}: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInview = useInView(ref, { once: true });
   const mainControl = useAnimation();
@@ -21,7 +26,7 @@ export default function Reveal({ children, width = 'w-fit' }: RevealProps) {
     }
   }, [isInview]);
   return (
-    <div ref={ref} className={cn('relative overflow-hidden', width)}>
+    <div ref={ref} className={cn('relative overflow-hidden', width, className)}>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },

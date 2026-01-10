@@ -12,7 +12,7 @@
 
 @layer base {
   .prose {
-    --tw-prose-body: oklch(0.145 0 0);
+    --tw-prose-body: var(--muted-foreground);
     --tw-prose-headings: oklch(0.145 0 0);
     --tw-prose-lead: oklch(0.4 0 0);
     --tw-prose-links: rgb(0 196 253);
@@ -65,7 +65,7 @@
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
     line-height: 1.8;
-    color: oklch(0.145 0 0);
+    color: var(--muted-foreground);
   }
 
   .prose a {
@@ -181,6 +181,24 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .prose thead {
+    background-color: oklch(0.97 0 0);
+    border-bottom: 2px solid oklch(0.9 0 0);
+  }
+
+  .prose tbody tr {
+    border-bottom: 1px solid oklch(0.9 0 0);
+  }
+
+  .prose tbody tr:nth-child(even) {
+    background-color: oklch(0.98 0 0);
+  }
+
+  .prose tbody tr:hover {
+    background-color: oklch(0.95 0 0);
   }
 
   .prose th, .prose td {
@@ -191,6 +209,9 @@
   .prose th {
     font-weight: 600;
     color: oklch(0.145 0 0);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
   }
 
   .prose td {
@@ -221,7 +242,6 @@
 .dark .prose h2,
 .dark .prose h3,
 .dark .prose h4,
-.dark .prose p,
 .dark .prose strong,
 .dark .prose th,
 .dark .prose td {
@@ -253,11 +273,20 @@
 }
 
 .dark .prose thead {
+  background-color: oklch(0.2 0 0);
   border-color: oklch(1 0 0 / 15%);
 }
 
 .dark .prose tbody tr {
   border-color: oklch(1 0 0 / 15%);
+}
+
+.dark .prose tbody tr:nth-child(even) {
+  background-color: oklch(0.15 0 0);
+}
+
+.dark .prose tbody tr:hover {
+  background-color: oklch(0.25 0 0);
 }
 
 .dark .prose a {

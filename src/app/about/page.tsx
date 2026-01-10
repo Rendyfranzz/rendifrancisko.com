@@ -1,4 +1,5 @@
 import Accent from '@/components/Accent';
+import Reveal from '@/components/Reveal';
 import { Layout } from '@/components/layout/Layout';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Metadata } from 'next';
@@ -45,32 +46,68 @@ export default function index() {
 
   return (
     <Layout>
-      <section className='layout'>
-        <div className='prose dark:prose-invert'>
-          <Accent className='text-3xl font-bold text-black'>About me</Accent>
-          <p>
-            My name is
-            <Accent className='font-medium text-black'>
-              {' '}
-              Rendi Dwi Francisko.
-            </Accent>
-          </p>
-          <p>
-            I am a graduate of Informatics Engineering from Sepuluh Nopember
-            Institute of Technology. My journey started with exploring various
-            technologies, which quickly led me to work on several projects. Over
-            time, I focused on web development specializing in Frontend and
-            Backend. On the Frontend I use JavaScript, especially React and
-            Next.js, while on the Backend I use Go, Express JS, and Restify JS.
-          </p>
-          <p>
-            On this page, I showcase some of the projects I have been involved
-            in, reflecting my growth and experiences in the field. If you’d like
-            to discuss anything or share your thoughts, feedback, or
-            suggestions, please feel free to get in touch. I am always open to
-            new conversations and collaborations. I look forward to hearing from
-            you!
-          </p>
+      <section className='layout py-20'>
+        <div className='max-w-3xl mx-auto'>
+          <Reveal className='mx-auto'>
+            <div className='flex flex-col items-center text-center mb-16'>
+              <span className='inline-block px-4 py-1.5 rounded-full bg-primary-500/10 text-primary-500 text-sm font-medium mb-6 border border-primary-500/20'>
+                About Me
+              </span>
+              <h1 className='text-4xl md:text-5xl font-bold tracking-tight mb-4'>
+                My name is{' '}
+                <span className='relative'>
+                  <Accent className=''>Rendi</Accent>
+                  <span className='absolute -bottom-2 left-0 right-0 h-3 bg-primary-500/20 rounded-full' />
+                </span>{' '}
+                Dwi Francisko
+              </h1>
+            </div>
+          </Reveal>
+
+          <div className='space-y-8'>
+            <Reveal width='w-full'>
+              <p className='text-lg md:text-xl leading-relaxed text-muted-foreground text-center'>
+                I am a graduate of{' '}
+                <span className='font-medium text-foreground'>
+                  Informatics Engineering from Sepuluh Nopember Institute of
+                  Technology
+                </span>
+                . My journey started with exploring various technologies, which
+                quickly led me to work on several projects. Over time, I focused
+                on web development specializing in Frontend and Backend.
+              </p>
+            </Reveal>
+
+            <Reveal width='w-full'>
+              <div className='grid gap-6 sm:grid-cols-2 my-12'>
+                <div className='p-6 rounded-2xl bg-card border border-border/50 hover:border-primary-500/30 transition-colors duration-300'>
+                  <h3 className='font-semibold text-lg mb-3'>Frontend</h3>
+                  <p className='text-muted-foreground text-sm'>
+                    JavaScript, React, Next.js, TypeScript, Tailwind CSS
+                  </p>
+                </div>
+                <div className='p-6 rounded-2xl bg-card border border-border/50 hover:border-primary-500/30 transition-colors duration-300'>
+                  <h3 className='font-semibold text-lg mb-3'>Backend</h3>
+                  <p className='text-muted-foreground text-sm'>
+                    Go, Express JS, Restify JS, PostgreSQL, Redis
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal width='w-full'>
+              <p className='text-lg md:text-xl leading-relaxed text-muted-foreground text-center'>
+                On this page, I showcase some of the projects I have been
+                involved in, reflecting my growth and experiences in the field.
+                If you&apos;d like to discuss anything or share your thoughts,
+                feedback, or suggestions, please feel free to get in touch. I am
+                always open to new conversations and collaborations.{' '}
+                <span className='text-foreground font-medium'>
+                  I look forward to hearing from you!
+                </span>
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
       <JsonLd id='about-structured-data' data={aboutJsonLd} />

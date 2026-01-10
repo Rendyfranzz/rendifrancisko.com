@@ -1,43 +1,46 @@
 ---
 title: Shorten Link
-description: Link shorteners work by transforming any long URL into a shorter, more readable link.
+description: URL Shortener Application
 thumbnail: https://blogger.googleusercontent.com/img/a/AVvXsEh1yv_LpcqJMOywWP8ZO9FmF3NjKCYmZjbaWelp6Azr5nnRnVcdBYRI2RcEumojAW5uzNRbIrYAm8hfH9V2aICItzUmNyMZbyv94iqRRJcsaFCx8-HghjJd0gA2l6oxJeBmGZOz2VbY5bHLrEXiv8nWtpbIUdioUKSjybi_dZXFqpVoWWPnKihjgVvXaFg
 date: '2023-01-06'
 techStack: nextjs,mongodb,tailwindcss,prisma
 ---
 
-## Description
+## Overview
 
-A website that can be used to convert long URLs into shorter and more memorable ones. This web service is useful for shortening or simplifying links, making them easier to share on social media, text, or other communication platforms.
-I created this website to learn Next.js.
+**Shorten Link** is a web application designed to convert long URLs into shorter, more manageable links. This service simplifies URLs to make them more user-friendly, especially useful for sharing on social media, text messages, or other communication platforms.
 
-
-## Project Overview
-
-**Shorten Link** is a web application designed to convert long URLs into shorter, more manageable links. This service simplifies URLs to make them more user-friendly, especially useful for sharing on social media, text messages, or other communication platforms. The primary goal of this project was to gain hands-on experience with Next.js.
+I created this project to gain hands-on experience with Next.js and modern web development practices.
 
 ## Key Features
 
-- **URL Shortening**: Convert long URLs into compact and easy-to-share links.
-- **Custom Aliases**: Optionally create custom short links with meaningful aliases.
-- **Analytics Dashboard**: Track click statistics for each shortened link (if implemented).
-- **User Authentication**: Secure access to user-specific features (optional).
-
-## Tech Stack
-
-- **Next.js**: Framework for building the React application with server-side rendering.
-- **MongoDB**: NoSQL database for storing URL mappings and user data.
-- **Tailwind CSS**: Utility-first CSS framework for designing responsive and modern UI.
-- **Prisma**: ORM for database access and management.
-
-## Challenges Faced
-
-- **Handling URL Redirection**: Implementing efficient and secure URL redirection to ensure users are directed to the correct destination.
-- **Scalability**: Ensuring the application can handle a growing number of links and user requests.
-- **Custom Aliases**: Allowing users to create custom short links while avoiding collisions and ensuring uniqueness.
+- URL Shortening - Convert long URLs into compact and easy-to-share links
+- Custom Aliases - Optionally create custom short links with meaningful aliases
+- Analytics Dashboard - Track click statistics for each shortened link
+- User Authentication - Secure access to user-specific features
 
 ## How to Use
 
-1. **Enter URL**: Paste the long URL you want to shorten into the input field.
-2. **Generate Short Link**: Click the "Shorten" button to create a short URL.
-3. **Copy and Share**: Copy the generated short URL and use it as needed.
+1. **Enter URL** - Paste the long URL you want to shorten into the input field
+2. **Generate Short Link** - Click the "Shorten" button to create a short URL
+3. **Copy and Share** - Copy the generated short URL and use it as needed
+
+## Tech Stack
+
+- **Next.js** - Framework for building the React application with SSR
+- **MongoDB** - NoSQL database for storing URL mappings and user data
+- **Tailwind CSS** - Utility-first CSS framework for modern UI
+- **Prisma** - ORM for database access and management
+
+## Technical Highlights
+
+- **URL Redirection** - Efficient and secure redirection to ensure users reach the correct destination
+- **Scalable Architecture** - Designed to handle growing numbers of links and requests
+- **Custom Aliases** - Unique short codes without collisions
+- **API Integration** - RESTful API for link management
+
+## Challenges Faced
+
+- **URL Redirection** - Implementing efficient and secure URL redirection
+- **Scalability** - Ensuring the application handles growing traffic
+- **Custom Aliases** - Creating unique short links without conflicts
