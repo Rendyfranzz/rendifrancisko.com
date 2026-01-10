@@ -51,7 +51,7 @@ export const Footer = () => {
             Tailwind CSS
           </LinkPreview>
         </div>
-        <p className=''>&copy; Rendi Dwi Francisko 2025</p>
+        <p className=''>&copy; Rendi Dwi Francisko 2026</p>
         {/* <Spotify className='mt-8' /> */}
       </div>
     </footer>
