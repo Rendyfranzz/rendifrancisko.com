@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   applicationName: 'Rendi Francisko Portfolio',
   title: {
     default: 'Rendi Francisko',
@@ -89,6 +93,8 @@ export const metadata: Metadata = {
     'og:image:width': '1200',
     'og:image:height': '630',
     'twitter:image:src': 'https://rendifrancisko.com/api/og',
+    'theme-color': '#0a0a0a',
+    referrer: 'origin-when-cross-origin',
   },
 };
 
@@ -104,6 +110,14 @@ export default function RootLayout({
       name: 'Rendi Francisko',
       url: baseUrl,
       alternateName: 'Rendi Dwi Francisko Portfolio',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${baseUrl}/blog?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
     },
     {
       '@context': 'https://schema.org',

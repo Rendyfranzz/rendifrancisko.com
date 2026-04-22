@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: 'Blog | Rendi Francisko',
     description:

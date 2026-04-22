@@ -88,6 +88,7 @@ export default function HeroSection() {
               >
                 <CustomLink
                   href={social.href}
+                  aria-label={social.id}
                   className='inline-flex items-center gap-3 px-6 py-3 rounded-full border bg-background/80 backdrop-blur-sm hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-all duration-300 ease-out shadow-sm hover:shadow-lg hover:shadow-primary-500/25'
                 >
                   <social.icon className='w-5 h-5' />

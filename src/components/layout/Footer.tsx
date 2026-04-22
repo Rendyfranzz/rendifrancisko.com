@@ -11,7 +11,7 @@ export const Footer = () => {
     <footer className='mt-4 pb-2 h-full'>
       <div className='layout flex flex-col items-center border-t pt-6 dark:border-gray-600'>
         <p className='h4 mb-2 font-semibold'>Give me a shout</p>
-        <div className='flex space-x-4'>
+        <nav aria-label='Social links' className='flex space-x-4'>
           {socials.map((social) => (
             <Tooltip
               interactive={false}
@@ -26,7 +26,7 @@ export const Footer = () => {
               </CustomLink>
             </Tooltip>
           ))}
-        </div>
+        </nav>
         <div className='text-center'>
           Made using{' '}
           <LinkPreview

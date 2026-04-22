@@ -79,20 +79,20 @@ export default function index() {
             </Reveal>
 
             <Reveal width='w-full'>
-              <div className='grid gap-6 sm:grid-cols-2 my-12'>
-                <div className='p-6 rounded-2xl bg-card border border-border/50 hover:border-primary-500/30 transition-colors duration-300'>
+              <ul className='grid gap-6 sm:grid-cols-2 my-12'>
+                <li className='p-6 rounded-2xl bg-card border border-border/50 hover:border-primary-500/30 transition-colors duration-300'>
                   <h3 className='font-semibold text-lg mb-3'>Frontend</h3>
                   <p className='text-muted-foreground text-sm'>
                     JavaScript, React, Next.js, TypeScript, Tailwind CSS
                   </p>
-                </div>
-                <div className='p-6 rounded-2xl bg-card border border-border/50 hover:border-primary-500/30 transition-colors duration-300'>
+                </li>
+                <li className='p-6 rounded-2xl bg-card border border-border/50 hover:border-primary-500/30 transition-colors duration-300'>
                   <h3 className='font-semibold text-lg mb-3'>Backend</h3>
                   <p className='text-muted-foreground text-sm'>
                     Go, Express JS, Restify JS, PostgreSQL, Redis
                   </p>
-                </div>
-              </div>
+                </li>
+              </ul>
             </Reveal>
 
             <Reveal width='w-full'>

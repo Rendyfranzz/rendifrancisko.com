@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/projects',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: 'Projects | Rendi Francisko',
     description:
