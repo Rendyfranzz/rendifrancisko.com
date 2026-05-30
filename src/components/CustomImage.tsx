@@ -1,24 +1,22 @@
-import Image from 'next/image';
-
 type Props = {
-  src: string;
-  alt: string;
-  priority?: string;
+	src: string;
+	alt: string;
+	priority?: boolean;
 };
 
 export default function CustomImage({ src, alt, priority }: Props) {
-  const prty = priority ? true : false;
+	const isPriority = Boolean(priority);
 
-  return (
-    <div className='w-full h-full'>
-      <Image
-        className='rounded-lg mx-auto p-14'
-        src={src}
-        alt={alt}
-        width={650}
-        height={650}
-        priority={prty}
-      />
-    </div>
-  );
+	return (
+		<div className="w-full h-full">
+			<img
+				className="rounded-lg mx-auto p-14"
+				src={src}
+				alt={alt}
+				width={650}
+				height={650}
+				loading={isPriority ? "eager" : "lazy"}
+			/>
+		</div>
+	);
 }

@@ -1,24 +1,26 @@
-'use client';
+import { useRouterState } from "@tanstack/react-router";
+import NProgress from "nprogress";
+import type React from "react";
+import { useEffect } from "react";
 
-import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
-import React from 'react';
+const ProgressBarProvider = ({ children }: { children: React.ReactNode }) => {
+	const isLoading = useRouterState({
+		select: (state) => state.isLoading,
+	});
 
-const ProgressBarProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  return (
-    <>
-      {children}
-      <ProgressBar
-        height='4px'
-        color='#00c4fd '
-        options={{ showSpinner: false }}
-        shallowRouting
-      />
-    </>
-  );
+	useEffect(() => {
+		NProgress.configure({ showSpinner: false });
+	}, []);
+
+	useEffect(() => {
+		if (isLoading) {
+			NProgress.start();
+		} else {
+			NProgress.done();
+		}
+	}, [isLoading]);
+
+	return <>{children}</>;
 };
 
 export default ProgressBarProvider;

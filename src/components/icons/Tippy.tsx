@@ -1,32 +1,43 @@
-'use client';
-import * as React from 'react';
-import { Tooltip as TippyTooltip, type TooltipProps } from 'react-tippy';
+import type * as React from "react";
+import { cn } from "@/lib/utils";
 
 type TooltipTextProps = {
-  tipChildren?: React.ReactNode;
-  children?: React.ReactNode;
-} & TooltipProps &
-  Omit<React.ComponentPropsWithoutRef<'div'>, 'children'>;
+	tipChildren?: React.ReactNode;
+	html?: React.ReactNode;
+	children?: React.ReactNode;
+	interactive?: boolean;
+	trigger?: string;
+} & Omit<React.ComponentPropsWithoutRef<"span">, "children">;
 
 export default function Tooltip({
-  tipChildren,
-  children,
-  ...rest
+	tipChildren,
+	html,
+	children,
+	interactive = false,
+	className,
+	...rest
 }: TooltipTextProps) {
-  return (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    <TippyTooltip
-      trigger='mouseenter'
-      interactive
-      html={
-        <div className='inline-block rounded-md  p-2  shadow-md bg-background text-foreground '>
-          {tipChildren}
-        </div>
-      }
-      {...rest}
-    >
-      <>{children}</>
-    </TippyTooltip>
-  );
+	const content = tipChildren ?? html;
+
+	if (!content) {
+		return <>{children}</>;
+	}
+
+	return (
+		<span
+			className={cn("group/tooltip relative inline-flex", className)}
+			{...rest}
+		>
+			{children}
+			<span
+				role="tooltip"
+				className={cn(
+					"absolute bottom-full left-1/2 z-50 mb-2 w-max max-w-xs -translate-x-1/2 rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground opacity-0 shadow-md transition-opacity duration-150 group-hover/tooltip:opacity-100 group-focus-within/tooltip:opacity-100",
+					interactive ? "pointer-events-auto" : "pointer-events-none",
+				)}
+			>
+				{content}
+			</span>
+		</span>
+	);
 }

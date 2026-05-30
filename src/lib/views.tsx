@@ -1,17 +1,16 @@
-'use client';
-
-import React, { useEffect } from 'react';
+import type React from "react";
+import { useEffect } from "react";
 
 export const ReportView: React.FC<{ slug: string }> = ({ slug }) => {
-  useEffect(() => {
-    fetch('/api/incr', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ slug }),
-    });
-  }, [slug]);
+	useEffect(() => {
+		fetch("/api/incr", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ slug }),
+		});
+	}, [slug]);
 
-  return null;
+	return null;
 };

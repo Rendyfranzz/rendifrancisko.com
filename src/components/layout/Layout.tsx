@@ -1,19 +1,19 @@
-import React from 'react';
+import type React from "react";
 
-import { Footer } from './Footer';
-import Header from './Header';
+import { Footer } from "./Footer";
+import Header from "./Header";
 
 interface Page {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }
 export const Layout = ({ children }: Page) => {
-  return (
-    <>
-      <Header />
-      <main id='main-content' role='main' className='flex-1'>
-        {children}
-      </main>
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Header />
+			<main id="main-content" className="flex-1">
+				{children}
+			</main>
+			<Footer />
+		</>
+	);
 };
