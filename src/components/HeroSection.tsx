@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { SiGithub, SiLinkedin } from 'react-icons/si';
+import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import Accent from './Accent';
 import BG from './BG';
 import CustomLink from './buttons/CustomLink';
@@ -27,7 +27,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
     },
   },
 };
@@ -70,9 +70,9 @@ export default function HeroSection() {
             variants={itemVariants}
             className='text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed'
           >
-            Informatics Engineering Student of{' '}
+            Software Engineer passionate about building{' '}
             <span className='font-medium text-foreground'>
-              Institute Teknologi Sepuluh Nopember
+              modern web applications
             </span>
           </motion.p>
 
@@ -133,7 +133,7 @@ export default function HeroSection() {
 const socials: Social[] = [
   {
     href: 'https://github.com/Rendyfranzz',
-    icon: SiGithub,
+    icon: FaGithub,
     id: 'Github',
     text: (
       <>
@@ -143,7 +143,7 @@ const socials: Social[] = [
   },
   {
     href: 'https://www.linkedin.com/in/rendi-dwi-francisko/',
-    icon: SiLinkedin,
+    icon: FaLinkedin,
     id: 'Linkedin',
     text: (
       <>

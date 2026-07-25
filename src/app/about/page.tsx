@@ -110,7 +110,7 @@ export default function index() {
           </div>
         </div>
       </section>
-      <JsonLd id='about-structured-data' data={aboutJsonLd} />
+      <JsonLd data={aboutJsonLd} />
     </Layout>
   );
 }

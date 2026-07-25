@@ -6,10 +6,13 @@ interface Myprops {
 }
 const Links: React.FC<Myprops> = ({ children, href, ...rest }) => {
   return (
-    <Link href={href} scroll={false} passHref legacyBehavior>
-      <a href={href} {...rest} className='text-center p hover:text-primary-500'>
-        {children}
-      </a>
+    <Link
+      href={href}
+      scroll={false}
+      {...rest}
+      className='text-center p hover:text-primary-500'
+    >
+      {children}
     </Link>
   );
 };

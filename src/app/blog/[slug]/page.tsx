@@ -8,15 +8,14 @@ import type { Metadata } from 'next';
 
 export const revalidate = 60;
 
-export async function generateMetadata({
-  params,
-}: {
-  params: {
+export async function generateMetadata(props: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }): Promise<Metadata> {
+  const params = await props.params;
   try {
-    const blog = await getBlogBySlug((params?.slug as string) + '.mdx');
+    const blog = await getBlogBySlug((params.slug as string) + '.mdx');
     if (!blog) {
       return {
         title: 'Blog post not found',
@@ -62,6 +61,10 @@ export async function generateMetadata({
       ],
       creator: 'Rendi Dwi Francisko',
       publisher: 'Rendi Dwi Francisko',
+      robots: {
+        index: false,
+        follow: true,
+      },
     };
   } catch (error) {
     console.error(error);
@@ -75,14 +78,15 @@ export async function generateMetadata({
 export default async function Index({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }) {
-  const blog = await getBlogBySlug((params?.slug as string) + '.mdx');
+  const { slug } = await params;
+  const blog = await getBlogBySlug((slug as string) + '.mdx');
 
   const { meta, mdxSource, headings } = blog;
-  const blogUrl = `https://rendifrancisko.com/blog/${params.slug}`;
+  const blogUrl = `https://rendifrancisko.com/blog/${slug}`;
   const blogJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -133,7 +137,7 @@ export default async function Index({
         </div>
         <div className='prose dark:prose-invert lg:prose-lg'>{mdxSource}</div>
       </section>
-      <JsonLd id={`blog-${params.slug}-structured-data`} data={blogJsonLd} />
+      <JsonLd data={blogJsonLd} />
     </Layout>
   );
 }

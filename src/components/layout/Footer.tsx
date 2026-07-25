@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconType } from 'react-icons';
-import { SiGithub, SiGmail, SiLinkedin } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa6';
+import { SiGithub, SiGmail } from 'react-icons/si';
 import Accent from '../Accent';
 import CustomLink from '../buttons/CustomLink';
 import Tooltip from '../icons/Tippy';
@@ -13,11 +14,7 @@ export const Footer = () => {
         <p className='h4 mb-2 font-semibold'>Give me a shout</p>
         <nav aria-label='Social links' className='flex space-x-4'>
           {socials.map((social) => (
-            <Tooltip
-              interactive={false}
-              key={social.href}
-              tipChildren={social.text}
-            >
+            <Tooltip key={social.href} tipChildren={social.text}>
               <CustomLink
                 className='inline-flex items-center justify-center rounded-xs focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300'
                 href={social.href}
@@ -92,7 +89,7 @@ const socials: Social[] = [
   },
   {
     href: 'https://www.linkedin.com/in/rendi-dwi-francisko/',
-    icon: SiLinkedin,
+    icon: FaLinkedin,
     id: 'Linkedin',
     text: (
       <>

@@ -1,7 +1,5 @@
-import Script from 'next/script';
-
 type JsonLdProps = {
-  id: string;
+  id?: string;
   data:
     | Record<string, unknown>
     | Array<Record<string, unknown>>
@@ -9,12 +7,19 @@ type JsonLdProps = {
 };
 
 export function JsonLd({ id, data }: JsonLdProps) {
+  const jsonString = JSON.stringify(
+    Array.isArray(data)
+      ? data.length === 1
+        ? data[0]
+        : { '@graph': data }
+      : data,
+  );
+
   return (
-    <Script
+    <script
       id={id}
       type='application/ld+json'
-      strategy='afterInteractive'
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: jsonString }}
     />
   );
 }

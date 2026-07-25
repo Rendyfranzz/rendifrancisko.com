@@ -5,6 +5,7 @@ import ProgressBarProvider from '@/components/ProgressBarProvider';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { cn } from '@/lib/utils';
+import { Provider as TooltipProvider } from '@radix-ui/react-tooltip';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import React from 'react';
 
@@ -161,10 +162,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <TooltipProvider delayDuration={200}>{children}</TooltipProvider>
           </ThemeProvider>
         </ProgressBarProvider>
-        <JsonLd id='global-structured-data' data={structuredData} />
+        <JsonLd data={structuredData} />
         <SpeedInsights />
       </body>
     </html>

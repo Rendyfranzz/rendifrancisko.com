@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/typography';
 
@@ -120,7 +120,7 @@
     margin-bottom: 0.5rem;
     color: oklch(0.145 0 0);
   }
-  
+
   .prose ol {
     list-style-type: decimal;
     padding-left: 1.5rem;
@@ -168,7 +168,8 @@
     border-color: oklch(0.9 0 0);
   }
 
-  .prose img, .prose video {
+  .prose img,
+  .prose video {
     border-radius: 0.5rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -201,7 +202,8 @@
     background-color: oklch(0.95 0 0);
   }
 
-  .prose th, .prose td {
+  .prose th,
+  .prose td {
     padding: 0.75rem 1rem;
     text-align: left;
   }
@@ -247,7 +249,6 @@
 .dark .prose td {
   color: oklch(0.985 0 0);
 }
-
 
 .dark .prose blockquote {
   background: oklch(0.2 0 0 / 50%);
@@ -298,9 +299,8 @@
   color: oklch(0.7 0 0);
 }
 
-
 @layer utilities {
-:root {
+  :root {
     --tw-clr-primary-200: 219 255 0;
     --tw-clr-primary-300: 0 255 255;
     --tw-clr-primary-400: 121 0 243;
@@ -312,9 +312,7 @@
     --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #7900f3 */
     --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
   }
-
 }
-
 
 @theme inline {
   --color-primary-200: var(--clr-primary-200);
@@ -342,9 +340,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-inter: 'Inter', sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
-
 
 :root {
   --radius: 0.625rem;
@@ -387,7 +384,6 @@
   --ring: oklch(0.556 0 0);
 }
 
-
 @layer base {
   *,
   ::after,
@@ -399,32 +395,32 @@
 
   /* #region  /**=========== Typography =========== */
   .h0 {
-    @apply  text-3xl font-bold md:text-5xl;
+    @apply text-3xl font-bold md:text-5xl;
   }
 
   h1,
   .h1 {
-    @apply  text-2xl font-bold md:text-4xl;
+    @apply text-2xl font-bold md:text-4xl;
   }
 
   h2,
   .h2 {
-    @apply  text-xl font-bold md:text-3xl;
+    @apply text-xl font-bold md:text-3xl;
   }
 
   h3,
   .h3 {
-    @apply  text-lg font-bold md:text-2xl;
+    @apply text-lg font-bold md:text-2xl;
   }
 
   h4,
   .h4 {
-    @apply  text-base font-bold md:text-lg;
+    @apply text-base font-bold md:text-lg;
   }
 
   body,
   .p {
-    @apply  text-sm md:text-base;
+    @apply text-sm md:text-base;
   }
   /* #endregion  /**======== Typography =========== */
   body,
@@ -452,6 +448,6 @@
   }
 
   .cursor-newtab {
-    cursor: url('/images/new-tab.png') 10 10, pointer;
+    cursor: url("/images/new-tab.png") 10 10, pointer;
   }
 }

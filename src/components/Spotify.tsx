@@ -19,15 +19,7 @@ export default function Spotify({
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   return data?.isPlaying ? (
     <figure className={className} data-cy='spotify'>
-      <Tooltip
-        trigger='mouseenter'
-        interactive
-        html={
-          <div className='inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-gray-600 dark:bg-dark dark:text-gray-200'>
-            <p>Currently playing on my Spotify</p>
-          </div>
-        }
-      >
+      <Tooltip tipChildren={<p>Currently playing on my Spotify</p>}>
         <CustomLink
           {...rest}
           href={data.songUrl}

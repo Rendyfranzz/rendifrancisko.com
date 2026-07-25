@@ -9,15 +9,14 @@ import type { Metadata } from 'next';
 
 export const revalidate = 60;
 
-export async function generateMetadata({
-  params,
-}: {
-  params: {
+export async function generateMetadata(props: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }): Promise<Metadata> {
+  const params = await props.params;
   try {
-    const project = await getProjectBySlug((params?.slug as string) + '.mdx');
+    const project = await getProjectBySlug((params.slug as string) + '.mdx');
     if (!project) {
       return {
         title: 'Project not found',
@@ -78,14 +77,15 @@ export async function generateMetadata({
 export default async function Index({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }) {
-  const project = await getProjectBySlug((params?.slug as string) + '.mdx');
+  const { slug } = await params;
+  const project = await getProjectBySlug((slug as string) + '.mdx');
 
   const { meta, mdxSource, headings } = project;
-  const projectUrl = `https://rendifrancisko.com/projects/${params.slug}`;
+  const projectUrl = `https://rendifrancisko.com/projects/${slug}`;
   const projectJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
@@ -106,7 +106,7 @@ export default async function Index({
   return (
     <Layout>
       <TableOfContents headings={headings} />
-      <ReportView slug={params.slug} />
+      <ReportView slug={slug} />
       <section className='layout'>
         {meta.thumbnail != null && (
           <CustomImages
@@ -125,10 +125,7 @@ export default async function Index({
         </div>
         <div className='prose dark:prose-invert lg:prose-lg'>{mdxSource}</div>
       </section>
-      <JsonLd
-        id={`project-${params.slug}-structured-data`}
-        data={projectJsonLd}
-      />
+      <JsonLd data={projectJsonLd} />
     </Layout>
   );
 }

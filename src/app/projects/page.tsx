@@ -105,7 +105,7 @@ export default async function index() {
           </ul>
         </AnimateDiv>
       </section>
-      <JsonLd id='projects-item-list' data={projectsJsonLd} />
+      <JsonLd data={projectsJsonLd} />
     </Layout>
   );
 }

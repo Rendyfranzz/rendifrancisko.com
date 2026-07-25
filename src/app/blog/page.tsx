@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: '/blog',
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
   openGraph: {
@@ -90,7 +90,7 @@ export default async function index() {
           </ul>
         </AnimateDiv>
       </section>
-      <JsonLd id='blogs-item-list' data={blogsJsonLd} />
+      <JsonLd data={blogsJsonLd} />
     </Layout>
   );
 }
